@@ -28,11 +28,14 @@ function Navbar() {
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
-    ></Box>
+    >
+      salam
+    </Box>
   );
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
+        <Box sx={{ display: { xs: "none", md: "flex" } }}>waleykimessalam</Box>
         <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
           {["left"].map((anchor) => (
             <React.Fragment key={anchor}>
