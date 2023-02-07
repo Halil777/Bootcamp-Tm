@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Index from "./Index/Index";
 import About from "./pages/About";
-import Home from "./pages/Home";
+// import Home from "./pages/Home";
 
 export const AppContext = createContext({});
 
@@ -30,7 +30,7 @@ function App() {
       >
         <BrowserRouter>
           <Routes>
-            <Route index element={<Home />} />
+            {/* <Route index element={<Home />} /> */}
             <Route path={"/"} element={<Index />}>
               <Route path={"/about"} element={<About />} />
             </Route>
