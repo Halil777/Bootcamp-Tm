@@ -1,4 +1,95 @@
+@font-face {
+  font-family: "AppBlack";
+  src: url(assets/font/Montserrat-Black.ttf);
+}
+
+@font-face {
+  font-family: "AppBlackItalic";
+  src: url(assets/font/Montserrat-BlackItalic.ttf);
+}
+
+@font-face {
+  font-family: "AppBold";
+  src: url(assets/font/Montserrat-Bold.ttf);
+}
+
+@font-face {
+  font-family: "AppBoldItalic";
+  src: url(assets/font/Montserrat-BoldItalic.ttf);
+}
+
+@font-face {
+  font-family: "AppExtraBold";
+  src: url(assets/font/Montserrat-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: "AppExtraBoldItalic";
+  src: url(assets/font/Montserrat-ExtraBoldItalic.ttf);
+}
+
+@font-face {
+  font-family: "AppExtraLight";
+  src: url(assets/font/Montserrat-ExtraLight.ttf);
+}
+
+@font-face {
+  font-family: "AppExtraLightItalic";
+  src: url(assets/font/Montserrat-ExtraLightItalic.ttf);
+}
+
+@font-face {
+  font-family: "AppItalic";
+  src: url(assets/font/Montserrat-Italic.ttf);
+}
+
+@font-face {
+  font-family: "AppLight";
+  src: url(assets/font/Montserrat-Light.ttf);
+}
+
+@font-face {
+  font-family: "AppLightItalic";
+  src: url(assets/font/Montserrat-LightItalic.ttf);
+}
+
+@font-face {
+  font-family: "AppMedium";
+  src: url(assets/font/Montserrat-Medium.ttf);
+}
+
+@font-face {
+  font-family: "AppMediumItalic";
+  src: url(assets/font/Montserrat-MediumItalic.ttf);
+}
+
+@font-face {
+  font-family: "AppRegular";
+  src: url(assets/font/Montserrat-Regular.ttf);
+}
+
+@font-face {
+  font-family: "AppSemiBold";
+  src: url(assets/font/Montserrat-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: "AppSemiBoldItalic";
+  src: url(assets/font/Montserrat-SemiBoldItalic.ttf);
+}
+
+@font-face {
+  font-family: "AppThin";
+  src: url(assets/font/Montserrat-Thin.ttf);
+}
+
+@font-face {
+  font-family: "AppThinItalic";
+  src: url(assets/font/Montserrat-ThinItalic.ttf);
+}
+
 * {
+  font-family: "AppRegular";
   padding: 0;
   margin: 0;
   box-sizing: border-box;

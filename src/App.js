@@ -3,7 +3,11 @@ import { useTranslation } from "react-i18next";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Index from "./Index/Index";
 import About from "./pages/About";
-// import Home from "./pages/Home";
+import ContactUs from "./pages/ContactUs";
+import Courses from "./pages/Courses";
+import Enroll from "./pages/Enroll";
+import Home from "./pages/Home";
+import VideoCourses from "./pages/VideoCourses";
 
 export const AppContext = createContext({});
 
@@ -30,9 +34,14 @@ function App() {
       >
         <BrowserRouter>
           <Routes>
-            {/* <Route index element={<Home />} /> */}
             <Route path={"/"} element={<Index />}>
               <Route path={"/about"} element={<About />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/courses" element={<Courses />} />
+              <Route path="/enroll" element={<Enroll />} />
+              <Route path="/videoCourses" element={<VideoCourses />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contactUs" element={<ContactUs />} />
             </Route>
           </Routes>
         </BrowserRouter>

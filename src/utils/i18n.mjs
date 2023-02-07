@@ -3,20 +3,41 @@ import { initReactI18next } from "react-i18next";
 
 const resources = {
   ru: {
-    translation: {},
+    translation: {
+      home: "Глаvnaya",
+      courses: "Kursy",
+      enroll: "Enroll",
+      videoCourses: "Video Kursy",
+      about: "About",
+      contactUs: "Contact Us",
+    },
   },
   tm: {
-    translation: {},
+    translation: {
+      home: "Bash sahypa",
+      courses: "Kurslar",
+      enroll: "Enroll",
+      videoCourses: "Video Kurslar",
+      about: "Barada",
+      contactUs: "Habarlashmak",
+    },
   },
 
   en: {
-    translation: {},
+    translation: {
+      home: "Home",
+      courses: "Courses",
+      enroll: "Enroll",
+      videoCourses: "Video Courses",
+      about: "About",
+      contactUs: "Contact Us",
+    },
   },
 };
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: "tm",
+  lng: "en",
   interpolation: {
     escapeValue: false,
   },
