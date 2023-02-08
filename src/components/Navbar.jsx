@@ -11,7 +11,7 @@ import {
   linkAvtiveStyle,
   navbarStyle,
 } from "../style/navbarStyle.mjs";
-import { Stack, Typography } from "@mui/material";
+import { Stack } from "@mui/material";
 import logo from "../images/logo.png";
 import logo1 from "../images/logo1.png";
 import { navbarData } from "../data/navbarData/navbar.mjs";
@@ -24,6 +24,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import i18n from "../utils/i18n.mjs";
+import NotesIcon from "@mui/icons-material/Notes";
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -100,7 +101,7 @@ function Navbar() {
 
   const { t } = useTranslation();
   const [state, setState] = useState({
-    left: false,
+    right: false,
   });
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -254,20 +255,26 @@ function Navbar() {
           </Container>
         </Box>
         <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-          {["left"].map((anchor) => (
+          {["right"].map((anchor) => (
             <React.Fragment key={anchor}>
-              <Stack direction="row" alignItems="center" spacing={3}>
+              <Stack
+                direction="row"
+                alignItems="center"
+                justifyContent={"space-between"}
+                width="100%"
+              >
+                <img src={logo} alt="logo" />
                 <IconButton
                   size="large"
                   aria-label="account of current user"
                   aria-controls="menu-appbar"
                   aria-haspopup="true"
                   color="inherit"
+                  // sx={{ rotate: "-90deg" }}
                   onClick={toggleDrawer(anchor, true)}
                 >
-                  <MenuIcon />
+                  <NotesIcon />
                 </IconButton>
-                <img src={logo} alt="logo" />
               </Stack>
               <Drawer
                 anchor={anchor}
