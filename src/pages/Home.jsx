@@ -1,21 +1,24 @@
-import { Button, Grid, Stack, Typography } from "@mui/material";
+import { Box, Button, Grid, Stack, Typography } from "@mui/material";
 import React from "react";
 import {
   coursesButton,
   enrollButton,
+  homeExperienceBoxStyle,
+  homeExperienceStyle,
   homeFirstButton,
+  homeTextStyle,
   homeTitleFirst,
   homeTitleSecond,
+  mapSection,
 } from "../style/homeStyle.mjs";
-import womens from "../images/womens.svg";
-import p1 from "../images/p1.svg";
-import p2 from "../images/p2.svg";
-import p3 from "../images/p3.svg";
+import map from "../images/map.svg";
+import womens from "../images/womens.png";
+import CoursesHome from "../layout/CoursesHome.jsx";
 
 const Home = () => {
   return (
     <>
-      <Grid container alignItems={"center"}>
+      <Grid container alignItems={"center"} sx={{ zIndex: 2 }}>
         <Grid item sm={12} lg={6} xs={12}>
           <Stack spacing={2}>
             <Button sx={homeFirstButton} variant="contained">
@@ -38,14 +41,63 @@ const Home = () => {
           </Stack>
         </Grid>
         <Grid item sm={12} lg={6} xs={12}>
-          <Stack direction={"row"} sx={{ width: "100%" }}>
-            <Stack direction={"row"} spacing={-10}>
-              <img src={p1} style={{ zIndex: 10 }} alt="p1" />
-              <img src={womens} alt="womens" />
-            </Stack>
-          </Stack>
+          <Box sx={{ zIndex: "10" }}>
+            <img
+              src={womens}
+              style={{ width: "100%", zIndex: "20" }}
+              alt="womens"
+            />
+          </Box>
         </Grid>
       </Grid>
+      <Box sx={mapSection}>
+        <Grid container alignItems={"center"}>
+          <Grid item sm={3} lg={3} pt={20}>
+            <Stack direction="row" alignItems={"center"} spacing={3}>
+              <Box sx={homeExperienceBoxStyle}>
+                <Typography sx={homeExperienceStyle}>+4</Typography>
+              </Box>
+              <Typography sx={homeTextStyle}>
+                year <br /> experience
+              </Typography>
+            </Stack>
+            <Stack
+              pl={4}
+              pt={2}
+              direction="row"
+              alignItems={"center"}
+              spacing={3}
+            >
+              <Box sx={homeExperienceBoxStyle}>
+                <Typography sx={homeExperienceStyle}>+100</Typography>
+              </Box>
+              <Typography sx={homeTextStyle}>
+                students <br /> every season
+              </Typography>
+            </Stack>
+            <Stack
+              pl={8}
+              pt={2}
+              direction="row"
+              alignItems={"center"}
+              spacing={3}
+            >
+              <Box sx={homeExperienceBoxStyle}>
+                <Typography sx={homeExperienceStyle}>+10</Typography>
+              </Box>
+              <Typography sx={homeTextStyle}>
+                qualifield <br /> teachers
+              </Typography>
+            </Stack>
+          </Grid>
+          <Grid item sm={9} lg={9}>
+            <Box sx={{ display: { xs: "none", sm: "flex" }, zIndex: "1" }}>
+              <img src={map} alt="map" style={{ width: "100%" }} />
+            </Box>
+          </Grid>
+        </Grid>
+      </Box>
+      <CoursesHome />
     </>
   );
 };
