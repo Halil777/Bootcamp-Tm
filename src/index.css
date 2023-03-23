@@ -94,3 +94,20 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+.swiper-container {
+  width: 500px;
+  border-radius: 15px;
+}
+
+@media (min-width: 992px) {
+  .pl-lg {
+    padding-left: 2rem; /* adjust the value as needed */
+  }
+}
+
+@media (min-width: 1280px) {
+  .plXl {
+    padding-left: 60px;
+  }
+}
