@@ -80,64 +80,6 @@ const FullStack = () => {
           </Container>
         </Box>
       </Box>
-      <Box sx={{ display: { xs: "flex", sm: "flex", lg: "none" } }}>
-        <Container>
-          <Grid container alignItems={"center"}>
-            <Grid item sm={6} xs={12} alignItems={"center"}>
-              <Stack spacing={2}>
-                <Typography sx={homeappDevelopment}>
-                  Full-stack web <br /> development
-                </Typography>
-                <Typography sx={fullstackText}>
-                  Web developer is highly needed <br /> profession in nowadays .
-                  Become Full stack <br /> developer in BootcampTm.
-                </Typography>
-                <Stack direction="row" spacing={1}>
-                  <Button sx={dartButton} variant="contained">
-                    HTML
-                  </Button>
-                  <Button sx={dartButton} variant="contained">
-                    CSS
-                  </Button>
-                  <Button sx={dartButton} variant="contained">
-                    SASS
-                  </Button>
-                  <Button sx={dartButton} variant="contained">
-                    JS
-                  </Button>
-                  <Button sx={dartButton} variant="contained">
-                    React JS
-                  </Button>
-                </Stack>
-                <Stack direction="row" spacing={1}>
-                  <Button sx={dartButton} variant="contained">
-                    Node JS
-                  </Button>
-                  <Button sx={dartButton} variant="contained">
-                    Database
-                  </Button>
-                  <Button sx={dartButton} variant="contained">
-                    PostgreSQL
-                  </Button>
-                  <Button sx={dartButton} variant="contained">
-                    RestfulAPI
-                  </Button>
-                </Stack>
-                <Button sx={homeViewButton} variant="contained">
-                  View details
-                </Button>
-              </Stack>
-            </Grid>
-            <Grid item sm={6} xs={12} alignItems={"center"}>
-              <img
-                style={{ width: "60%" }}
-                src={fullStackHome}
-                alt="fullStackHome"
-              />
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
     </>
   );
 };
