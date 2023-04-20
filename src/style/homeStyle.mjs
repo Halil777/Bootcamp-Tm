@@ -33,6 +33,7 @@ export const enrollButton = {
   fontWeight: "600",
   fontFamily: "AppRegular",
   background: "#CA0088",
+  boxShadow: "0px 10px 40px rgba(228, 23, 183, 0.2)",
 
   "&:hover": {
     backgroundColor: "#CA0088",
@@ -57,8 +58,9 @@ export const homeExperienceStyle = {
 export const homeExperienceBoxStyle = {
   border: "1px solid rgba(244,244,244, 0.3)",
   borderRadius: "16px",
-  width: "65px",
-  height: "65px",
+  width: "90px",
+  padding: "10px",
+  height: "90px",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -289,6 +291,7 @@ export const engagingBox = {
   background: "#1D4CF2",
   borderTopRightRadius: "24px",
   borderTopLeftRadius: "24px",
+  marginBottom: "-40px",
 };
 
 export const engagingTitle = {

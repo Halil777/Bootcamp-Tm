@@ -8,7 +8,6 @@ export const footerAdress = {
   paddingTop: "57.9px",
   fontWeight: "600",
   fontSize: "12px",
-  lineHeight: "15px",
   fontFamily: "AppRegular",
 };
 

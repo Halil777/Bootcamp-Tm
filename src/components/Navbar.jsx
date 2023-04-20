@@ -146,7 +146,7 @@ function Navbar() {
     </Box>
   );
   return (
-    <AppBar position="static" sx={navbarStyle}>
+    <AppBar position="fixed" sx={navbarStyle}>
       <Container maxWidth="xl">
         <Box
           sx={{

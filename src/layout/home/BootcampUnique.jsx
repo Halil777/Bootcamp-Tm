@@ -119,17 +119,17 @@ const BootcampUnique = () => {
       {/* Bootcamp Unique mini section starts here ............................... */}
       {/* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */}
       <Box sx={{ display: { xs: "block", sm: "block", lg: "none" } }}>
-        <Container>
-          <Grid container alignItems="center" spacing={3}>
-            <Grid item xs={12} sm={6}>
+        <Grid container alignItems="center" spacing={3}>
+          <Grid item xs={12} sm={6}>
+            <Container>
               <Stack
                 spacing={2}
-                sx={{
-                  display: "flex",
-                  alignItems: { xs: "center", sm: "flex-start" },
-                }}
+                // sx={{
+                //   display: "flex",
+                //   alignItems: { xs: "center", sm: "flex-start" },
+                // }}
               >
-                <Typography sx={uniqueText}>
+                <Typography sx={{ ...uniqueText, fontSize: "24px" }}>
                   What makes our <br /> bootcampm unique?
                 </Typography>
                 <Card
@@ -204,23 +204,26 @@ const BootcampUnique = () => {
                   </CardActionArea>
                 </Card>
               </Stack>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Stack
-                sx={{
-                  display: "flex",
-                  alignItems: { xs: "center", sm: "flex-start" },
-                }}
-              >
-                <img
-                  style={{ width: "100%" }}
-                  src={btImage}
-                  alt={"bootcamp img"}
-                />
-              </Stack>
-            </Grid>
+            </Container>
           </Grid>
-        </Container>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            sx={{ display: "flex", alignItems: "flex-end", mt: -18 }}
+          >
+            <div
+              style={{
+                width: "100%",
+                height: "300px",
+                background: "url(/image/bootcampImg.png)",
+                backgroundPosition: "170px 0px",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "contain",
+              }}
+            ></div>
+          </Grid>
+        </Grid>
       </Box>
     </>
   );

@@ -22,6 +22,7 @@ const FullStackMini = () => {
               sx={{
                 ...homeappDevelopment,
                 textAlign: { xs: "center", sm: "start" },
+                fontSize: "30px",
               }}
             >
               Full-stack web <br /> development
@@ -32,8 +33,9 @@ const FullStackMini = () => {
                 textAlign: { xs: "center", sm: "start" },
               }}
             >
-              Web developer is highly needed <br /> profession in nowadays .
-              Become Full stack <br /> developer in BootcampTm.
+              <b> Web developer</b> is highly needed <br /> profession in
+              nowadays . Become <b> Full stack </b> <br /> developer in
+              BootcampTm.
             </Typography>
           </Grid>
           <Grid item sm={6} xs={12}>

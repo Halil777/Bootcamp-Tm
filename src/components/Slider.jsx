@@ -13,6 +13,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/autoplay";
 import { shapeText, whiteText } from "../style/homeStyle.mjs";
+import Spacer from "./Spacer.jsx";
 
 const Slider = ({ slides }) => {
   function createSlide() {
@@ -68,20 +69,88 @@ const Slider = ({ slides }) => {
       </SwiperSlide>
     );
   }
+
+  function createMiniSlider() {
+    return (
+      <SwiperSlide>
+        <Stack>
+          <img
+            src={slider1}
+            style={{
+              height: "100%",
+              width: "100%",
+              listStyle: "none",
+              borderTopRightRadius: "15px",
+              borderTopLeftRadius: "15px",
+            }}
+            alt="slider"
+          />
+          <Box
+            sx={{
+              background: "#CA0088",
+              p: 3,
+              borderRadius: "0px 0px 15px 15px",
+            }}
+          >
+            <Stack>
+              <Typography sx={{ ...whiteText, fontSize: "22px" }}>
+                When it comes to
+              </Typography>
+              <Stack direction="row" spacing={1}>
+                <Typography sx={{ ...whiteText, fontSize: "22px" }}>
+                  Bootcamp, it's
+                </Typography>
+                <Typography sx={{ ...shapeText, fontSize: "22px" }}>
+                  never
+                </Typography>
+              </Stack>
+              <Stack direction="row" spacing={1}>
+                <Typography sx={{ ...shapeText, fontSize: "22px" }}>
+                  late
+                </Typography>
+                <Typography sx={{ ...whiteText, fontSize: "22px" }}>
+                  to
+                </Typography>
+                <Typography sx={{ ...shapeText, fontSize: "22px" }}>
+                  learn
+                </Typography>
+                <Typography sx={{ ...whiteText, fontSize: "22px" }}>
+                  !
+                </Typography>
+              </Stack>
+            </Stack>
+            <Spacer count={2} />
+          </Box>
+        </Stack>
+      </SwiperSlide>
+    );
+  }
   return (
     <>
       <Container>
-        <Swiper
-          modules={[Navigation, Autoplay]}
-          slidesPerView={1}
-          navigation
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
-        >
-          {createSlide()}
-          {createSlide()}
-          {createSlide()}
-          {createSlide()}
-        </Swiper>
+        <Box sx={{ display: { sm: "block", lg: "block", xs: "none" } }}>
+          <Swiper
+            modules={[Navigation, Autoplay]}
+            slidesPerView={1}
+            navigation
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+          >
+            {createSlide()}
+            {createSlide()}
+            {createSlide()}
+            {createSlide()}
+          </Swiper>
+        </Box>
+        <Box sx={{ display: { xs: "block", sm: "none", lg: "none" } }}>
+          <Swiper
+            modules={[Navigation, Autoplay]}
+            slidesPerView={1}
+            navigation
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+          >
+            {createMiniSlider()}
+          </Swiper>
+        </Box>
       </Container>
     </>
   );

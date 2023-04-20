@@ -11,8 +11,15 @@ import {
   homeappDevelopment,
   homeViewButton,
 } from "../../style/homeStyle.mjs";
+import { useNavigate } from "react-router-dom";
 
 const CoursesHome = () => {
+  const location = useNavigate();
+
+  const handleClick = () => {
+    location("/appDevelopmentCourses");
+  };
+
   return (
     <>
       <Box sx={{ display: { xs: "none", sm: "none", lg: "block" } }}>
@@ -64,7 +71,11 @@ const CoursesHome = () => {
                     Flutter
                   </Button>
                 </Stack>
-                <Button sx={homeViewButton} variant="contained">
+                <Button
+                  onClick={handleClick}
+                  sx={homeViewButton}
+                  variant="contained"
+                >
                   View details
                 </Button>
               </Stack>

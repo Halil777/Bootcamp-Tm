@@ -80,6 +80,7 @@ const ProductDesign = () => {
                   sx={{
                     ...homeappDevelopment,
                     textAlign: { xs: "center", sm: "start" },
+                    fontSize: "30px",
                   }}
                 >
                   Product design
@@ -90,49 +91,81 @@ const ProductDesign = () => {
                     textAlign: { xs: "center", sm: "start" },
                   }}
                 >
-                  Learn how to design unique brand identities, <br /> product
-                  design and user interface
+                  Learn how to design unique
+                  <b> brand </b> <br /> <b> identities, </b>
+                  <b> product designs </b> and <b> user interface </b>
                 </Typography>
               </Stack>
             </Grid>
             <Grid item xs={12} sm={6}>
-              <Stack
-                spacing={2}
-                sx={{
-                  display: "flex",
-                  alignItems: { xs: "center", sm: "flex-start" },
-                }}
-              >
-                <Stack direction="row" spacing={2}>
-                  <Button sx={dartButton} variant="contained">
-                    <img
-                      src={btn1}
-                      style={{ width: "15px", marginRight: "10px" }}
-                      alt="dart logo"
-                    />
-                    Adobe Photoshop
-                  </Button>
-                  <Button sx={dartButton} variant="contained">
-                    <img
-                      src={btn3}
-                      style={{ width: "15px", marginRight: "10px" }}
-                      alt="dart logo"
-                    />
-                    Adobe Illustrator
-                  </Button>
-                </Stack>
-                <Button sx={{ ...dartButton, width: 100 }} variant="contained">
-                  <img
-                    src={btn2}
-                    style={{ width: "15px", marginRight: "10px" }}
-                    alt="dart logo"
-                  />
-                  Figma
-                </Button>
-                <Button sx={homeViewButton} variant="contained">
-                  View details
-                </Button>
-              </Stack>
+              <Grid container spacing={2}>
+                <Grid item sm={6} xs={12}>
+                  <Stack
+                    sx={{
+                      display: "flex",
+                      alignItems: { xs: "center", sm: "flex-start" },
+                    }}
+                  >
+                    <Button sx={dartButton} variant="contained">
+                      <img
+                        src={btn1}
+                        style={{ width: "15px", marginRight: "10px" }}
+                        alt="dart logo"
+                      />
+                      Adobe Photoshop
+                    </Button>
+                  </Stack>
+                </Grid>
+                <Grid item sm={6} xs={12}>
+                  <Stack
+                    sx={{
+                      display: "flex",
+                      alignItems: { xs: "center", sm: "flex-start" },
+                    }}
+                  >
+                    <Button sx={dartButton} variant="contained">
+                      <img
+                        src={btn3}
+                        style={{ width: "15px", marginRight: "10px" }}
+                        alt="dart logo"
+                      />
+                      Adobe Illustrator
+                    </Button>
+                  </Stack>
+                </Grid>
+                <Grid item sm={6} xs={12}>
+                  <Stack
+                    sx={{
+                      display: "flex",
+                      alignItems: { xs: "center", sm: "flex-start" },
+                    }}
+                  >
+                    <Button
+                      sx={{ ...dartButton, width: 100 }}
+                      variant="contained"
+                    >
+                      <img
+                        src={btn2}
+                        style={{ width: "15px", marginRight: "10px" }}
+                        alt="dart logo"
+                      />
+                      Figma
+                    </Button>
+                  </Stack>
+                </Grid>
+                <Grid item sm={12} xs={12}>
+                  <Stack
+                    sx={{
+                      display: "flex",
+                      alignItems: { xs: "center", sm: "center" },
+                    }}
+                  >
+                    <Button sx={homeViewButton} variant="contained">
+                      View details
+                    </Button>
+                  </Stack>
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
         </Box>

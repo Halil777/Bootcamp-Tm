@@ -13,7 +13,9 @@ const CoursesHomeMini = () => {
   return (
     <Box sx={{ display: { sm: "block", xs: "block", lg: "none" } }}>
       <Container>
-        <Typography sx={{ ...coureseStyle, textAlign: "center" }}>
+        <Typography
+          sx={{ ...coureseStyle, textAlign: "center", fontSize: "24px" }}
+        >
           Courses we offer
         </Typography>
         <Grid container alignItems="center">
@@ -28,6 +30,7 @@ const CoursesHomeMini = () => {
                 sx={{
                   ...homeappDevelopment,
                   textAlign: { sm: "start", xs: "center" },
+                  fontSize: "30px",
                 }}
               >
                 App development

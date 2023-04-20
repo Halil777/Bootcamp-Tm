@@ -8,6 +8,7 @@ import Courses from "./pages/Courses";
 import Enroll from "./pages/Enroll";
 import Home from "./pages/Home";
 import VideoCourses from "./pages/VideoCourses";
+import AppDevelopmentCourses from "./layout/appDevelopmentCourses/AppDevelopmentCourses";
 
 export const AppContext = createContext({});
 
@@ -42,6 +43,10 @@ function App() {
               <Route path="/videoCourses" element={<VideoCourses />} />
               <Route path="/about" element={<About />} />
               <Route path="/contactUs" element={<ContactUs />} />
+              <Route
+                path="/appDevelopmentCourses"
+                element={<AppDevelopmentCourses />}
+              />
             </Route>
           </Routes>
         </BrowserRouter>

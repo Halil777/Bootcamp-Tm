@@ -61,8 +61,8 @@ const Home = () => {
             </Grid>
           </Grid>
         </Box>
-        <Start />
       </Container>
+      <Start />
       <HomeMap />
       <Spacer count={2} />
       <SecondMiniHome />

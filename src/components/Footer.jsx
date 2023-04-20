@@ -24,6 +24,7 @@ import footerIcon from "../images/footerIcon.svg";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import MailIcon from "@mui/icons-material/Mail";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import Spacer from "./Spacer.jsx";
 
 const link = [
   {
@@ -44,17 +45,17 @@ const link = [
 
 const listItem = [
   {
-    title: "webinars",
+    title: "Webinars",
     link: "/webinars",
   },
 
   {
-    title: "about us",
+    title: "About us",
     link: "/aboutUs",
   },
 
   {
-    title: "contact us",
+    title: "Contact us",
     link: "/contactUs",
   },
 ];
@@ -65,7 +66,12 @@ const Footer = () => {
   const { t } = useTranslation();
   return (
     <>
-      <Box sx={footerStyle}>
+      <Box
+        sx={{
+          ...footerStyle,
+          display: { lg: "block", sm: "none", xs: "none" },
+        }}
+      >
         <Container>
           <Grid container pt={"55.1px"}>
             <Grid item sm={4} xs={12} lg={2}>
@@ -78,7 +84,7 @@ const Footer = () => {
               </Stack>
             </Grid>
             <Grid item sm={4} xs={12} lg={2}>
-              <Stack alignItems="center">
+              <Stack alignItems="center" spacing={2}>
                 {link.map((item, i) => {
                   return (
                     <Link
@@ -93,7 +99,7 @@ const Footer = () => {
               </Stack>
             </Grid>
             <Grid item sm={4} xs={12} lg={2}>
-              <Stack alignItems="center">
+              <Stack alignItems="center" spacing={2}>
                 {listItem.map((item, i) => {
                   return (
                     <Link
@@ -138,12 +144,136 @@ const Footer = () => {
             </Grid>
           </Grid>
           <Stack>
-            <Divider color="#2F206A" sx={{ marginTop: "98px" }} />
-            <Typography sx={{ textAlign: "center" }}>
-              Copyrights 2022 All right reserved
-            </Typography>
+            <Spacer count={3} />
+            <Divider color="#2F206A" />
+            <Spacer count={2} />
+            <Stack direction="row" justifyContent={"center"}>
+              <Typography
+                sx={{
+                  color: "#4a3992",
+                  fontSize: "12px",
+                  fontFamily: "AppRegular",
+                  fontWeight: "600",
+                }}
+              >
+                Copyrights © 2023 All right reserved
+              </Typography>
+            </Stack>
           </Stack>
         </Container>
+      </Box>
+      {/* SM Footer section starts here {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}} */}
+      <Box
+        sx={{
+          display: { sm: "block", xs: "none", lg: "none" },
+          background: "#1c104f",
+        }}
+      >
+        <Container>
+          <Stack
+            pt={3}
+            direction="row"
+            justifyContent={"space-between"}
+            alignItems="flex-start"
+          >
+            <Stack direction="column">
+              <img src={logo} style={{ width: "170px" }} alt="logo" />
+              <Typography sx={{ ...footerAdress, paddingTop: "10px" }}>
+                Ashgabat, Turkmenistan <br /> Parahat str, Buisness center
+                <br /> Arzuw
+              </Typography>
+            </Stack>
+            <Stack direction="row" spacing={1} alignItems="center">
+              <img
+                src={footerIcon}
+                style={{ width: "50px", height: "50px" }}
+                alt="footer icon"
+              />
+              <Typography sx={{ ...footerSanly, fontSize: "28px" }}>
+                Sanly Bilim
+              </Typography>
+            </Stack>
+          </Stack>
+          <Spacer count={3} />
+          <Stack direction="row" spacing={2} justifyContent="center">
+            {iconButton.map((item, i) => {
+              return (
+                <IconButton
+                  sx={iconButtonStyleFooter}
+                  key={`iconButton_key${i}`}
+                >
+                  {item}
+                </IconButton>
+              );
+            })}
+          </Stack>
+          <Spacer count={2} />
+          <Divider color="#2F206A" />
+          <Spacer count={2} />
+          <Stack direction="row" justifyContent="center">
+            <Typography
+              sx={{
+                color: "#4a3992",
+                fontSize: "12px",
+                fontFamily: "AppRegular",
+                fontWeight: "600",
+              }}
+            >
+              Copyrights © 2023 All right reserved
+            </Typography>
+          </Stack>
+          <Spacer count={1} />
+        </Container>
+      </Box>
+      {/* {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{XS Footer section starts here .......}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}} */}
+      <Box
+        sx={{
+          display: { sm: "none", xs: "block", lg: "none" },
+          background: "#1c104f",
+        }}
+      >
+        <Spacer count={2} />
+        <Stack spacing={2} alignItems="center">
+          <Stack direction="row" spacing={1} alignItems="center">
+            <img
+              src={footerIcon}
+              style={{ width: "50px", height: "50px" }}
+              alt="footer icon"
+            />
+            <Typography sx={{ ...footerSanly, fontSize: "28px" }}>
+              Sanly Bilim
+            </Typography>
+          </Stack>
+          <Typography
+            sx={{ ...footerAdress, textAlign: "center", paddingTop: "10px" }}
+          >
+            Ashgabat, Turkmenistan <br /> Parahat str, Buisness center
+            <br /> Arzuw
+          </Typography>
+          <Stack direction="row" spacing={2} justifyContent="center">
+            {iconButton.map((item, i) => {
+              return (
+                <IconButton
+                  sx={iconButtonStyleFooter}
+                  key={`iconButton_key${i}`}
+                >
+                  {item}
+                </IconButton>
+              );
+            })}
+          </Stack>
+          <Typography
+            sx={{
+              color: "#4a3992",
+              fontSize: "12px",
+              fontFamily: "AppRegular",
+              fontWeight: "600",
+            }}
+          >
+            Copyrights © 2023 All right reserved
+          </Typography>
+        </Stack>
+        <Spacer count={2} />
       </Box>
     </>
   );

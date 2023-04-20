@@ -1,7 +1,12 @@
 import React from "react";
+import ContactLg from "../layout/contact/ContactLg";
 
 const ContactUs = () => {
-  return <div></div>;
+  return (
+    <>
+      <ContactLg />
+    </>
+  );
 };
 
 export default ContactUs;

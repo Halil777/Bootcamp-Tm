@@ -7,26 +7,45 @@ import {
   homeTitleFirst,
   homeTitleSecond,
 } from "../../style/homeStyle.mjs";
-import womens from "../../images/womens.png";
 
 const Start = () => {
   return (
-    <Box sx={{ display: { xs: "block", lg: "none", sm: "none" } }}>
-      <Stack spacing={2}>
-        <Button sx={homeFirstButton} variant="contained">
+    <Box
+      sx={{
+        display: { xs: "block", lg: "none", sm: "none" },
+        overflowX: "hidden",
+        pl: 2,
+      }}
+    >
+      <Stack spacing={2} sx={{ pr: 2 }}>
+        <Button
+          sx={{ ...homeFirstButton, fontSize: "12px" }}
+          variant="contained"
+        >
           First bootcamp in Turkmenistan
         </Button>
         <Stack>
-          <Typography sx={homeTitleFirst}>
+          <Typography sx={{ ...homeTitleFirst, fontSize: "33px" }}>
             Start your new <br /> career journey with
           </Typography>
-          <Typography sx={homeTitleSecond}>BootcampTm</Typography>
+          <Typography sx={{ ...homeTitleSecond, fontSize: "33px" }}>
+            BootcampTm
+          </Typography>
         </Stack>
       </Stack>
       <Stack direction="row" justifyContent="flex-end" width="100%">
-        <img src={womens} alt="womens" style={{ width: "70%" }} />
+        <div
+          style={{
+            width: "70%",
+            height: "300px",
+            background: "url(/image/womens.png)",
+            backgroundPosition: "90px 0px",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "contain",
+          }}
+        ></div>
       </Stack>
-      <Stack spacing={2}>
+      <Stack spacing={2} sx={{ pr: 2, mt: -6 }}>
         <Button variant="outlined" sx={coursesButton}>
           Courses
         </Button>
