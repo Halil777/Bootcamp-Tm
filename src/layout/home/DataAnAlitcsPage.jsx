@@ -10,8 +10,11 @@ import Tableau from "../../images/dataAnalytics/Group (2).svg";
 import ETL from "../../images/dataAnalytics/database 1 (1).svg";
 
 import { dartButton, homeViewButton } from "../../style/homeStyle.mjs";
+import { useTranslation } from "react-i18next";
 
 const DataAnAlitcsPage = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Box sx={{ display: { lg: "block", sm: "none", xs: "none" } }}>
@@ -43,10 +46,11 @@ const DataAnAlitcsPage = () => {
                     color: "#f4f4f4",
                   }}
                 >
-                  Data analytics and <br /> business intelligence
+                  {t("dataAnalytics")}
                 </Typography>
                 <Stack direction="row" spacing={1}>
                   <Typography
+                    width="63%"
                     sx={{
                       color: "#d8d8d8",
                       fontFamily: "AppRegular",
@@ -54,71 +58,7 @@ const DataAnAlitcsPage = () => {
                       fontWeight: "400",
                     }}
                   >
-                    In this course
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#f4f4f4",
-                      fontFamily: "AppRegular",
-                      fontSize: "16px",
-                      fontWeight: "400",
-                    }}
-                  >
-                    learn
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#d8d8d8",
-                      fontFamily: "AppRegular",
-                      fontSize: "16px",
-                      fontWeight: "400",
-                    }}
-                  >
-                    how to work with large
-                  </Typography>
-                </Stack>
-                <Stack direction="row" spacing={1}>
-                  <Typography
-                    sx={{
-                      color: "#f4f4f4",
-                      fontFamily: "AppRegular",
-                      fontSize: "16px",
-                      fontWeight: "400",
-                    }}
-                  >
-                    data
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#d8d8d8",
-                      fontFamily: "AppRegular",
-                      fontSize: "16px",
-                      fontWeight: "400",
-                    }}
-                  >
-                    and how to control the large amount
-                  </Typography>
-                </Stack>
-                <Stack direction="row" spacing={1}>
-                  <Typography
-                    sx={{
-                      color: "#d8d8d8",
-                      fontFamily: "AppRegular",
-                      fontSize: "16px",
-                      fontWeight: "400",
-                    }}
-                  >
-                    of
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#f4f4f4",
-                      fontFamily: "AppRegular",
-                      fontSize: "16px",
-                      fontWeight: "400",
-                    }}
-                  >
-                    information
+                    {t("inThisCourse")}
                   </Typography>
                 </Stack>
                 <Stack direction="row" spacing={1}>
@@ -191,7 +131,7 @@ const DataAnAlitcsPage = () => {
                   </Button>
                 </Stack>
                 <Button sx={homeViewButton} variant="contained">
-                  View details
+                  {t("viewDetails")}
                 </Button>
               </Stack>
             </Grid>
@@ -237,7 +177,7 @@ const DataAnAlitcsPage = () => {
                     textAlign: { xs: "center", sm: "start" },
                   }}
                 >
-                  Data analytics and <br /> business intelligence
+                  {t("dataAnalytics")}
                 </Typography>
                 <Stack direction="row" spacing={1}>
                   <Typography
@@ -246,73 +186,10 @@ const DataAnAlitcsPage = () => {
                       fontFamily: "AppRegular",
                       fontSize: "16px",
                       fontWeight: "400",
+                      textAlign: "center",
                     }}
                   >
-                    In this course
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#f4f4f4",
-                      fontFamily: "AppRegular",
-                      fontSize: "16px",
-                      fontWeight: "400",
-                    }}
-                  >
-                    learn
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#d8d8d8",
-                      fontFamily: "AppRegular",
-                      fontSize: "16px",
-                      fontWeight: "400",
-                    }}
-                  >
-                    how to work with large
-                  </Typography>
-                </Stack>
-                <Stack direction="row" spacing={1}>
-                  <Typography
-                    sx={{
-                      color: "#f4f4f4",
-                      fontFamily: "AppRegular",
-                      fontSize: "16px",
-                      fontWeight: "400",
-                    }}
-                  >
-                    data
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#d8d8d8",
-                      fontFamily: "AppRegular",
-                      fontSize: "16px",
-                      fontWeight: "400",
-                    }}
-                  >
-                    and how to control the large amount
-                  </Typography>
-                </Stack>
-                <Stack direction="row" spacing={1}>
-                  <Typography
-                    sx={{
-                      color: "#d8d8d8",
-                      fontFamily: "AppRegular",
-                      fontSize: "16px",
-                      fontWeight: "400",
-                    }}
-                  >
-                    of
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#f4f4f4",
-                      fontFamily: "AppRegular",
-                      fontSize: "16px",
-                      fontWeight: "400",
-                    }}
-                  >
-                    information
+                    {t("inThisCourse")}
                   </Typography>
                 </Stack>
               </Stack>
@@ -395,7 +272,7 @@ const DataAnAlitcsPage = () => {
                   </Button>
                 </Stack>
                 <Button sx={homeViewButton} variant="contained">
-                  View details
+                  {t("viewDetails")}
                 </Button>
               </Stack>
             </Grid>

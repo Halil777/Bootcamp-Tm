@@ -73,6 +73,7 @@ const Enroll = () => {
   };
   return (
     <>
+      <Spacer count={3} />
       <Container>
         <Box sx={enrollSection}>
           <Spacer count={3} />

@@ -14,8 +14,11 @@ import "swiper/css/scrollbar";
 import "swiper/css/autoplay";
 import { shapeText, whiteText } from "../style/homeStyle.mjs";
 import Spacer from "./Spacer.jsx";
+import { useTranslation } from "react-i18next";
 
 const Slider = ({ slides }) => {
+  const { t } = useTranslation();
+
   function createSlide() {
     return (
       <SwiperSlide>
@@ -29,15 +32,15 @@ const Slider = ({ slides }) => {
                 p={5}
               >
                 <Stack>
-                  <Typography sx={whiteText}>When it comes to </Typography>
+                  <Typography sx={whiteText}>{t("whenCome")}</Typography>
                   <Stack direction="row" spacing={1}>
-                    <Typography sx={whiteText}>Bootcamp, it's</Typography>
-                    <Typography sx={shapeText}>never </Typography>
+                    <Typography sx={whiteText}>{t("bootcampIt")}</Typography>
+                    <Typography sx={shapeText}>{t("never")} </Typography>
                   </Stack>
                   <Stack direction="row" spacing={1}>
-                    <Typography sx={shapeText}>late </Typography>
-                    <Typography sx={whiteText}>to </Typography>
-                    <Typography sx={shapeText}> learn</Typography>
+                    <Typography sx={shapeText}>{t("late")} </Typography>
+                    <Typography sx={whiteText}>{t("to")} </Typography>
+                    <Typography sx={shapeText}> {t("learN")}</Typography>
                   </Stack>
                 </Stack>
                 <Stack>
@@ -94,25 +97,25 @@ const Slider = ({ slides }) => {
           >
             <Stack>
               <Typography sx={{ ...whiteText, fontSize: "22px" }}>
-                When it comes to
+                {t("whenCome")}
               </Typography>
               <Stack direction="row" spacing={1}>
                 <Typography sx={{ ...whiteText, fontSize: "22px" }}>
-                  Bootcamp, it's
+                  {t("bootcampIt")}
                 </Typography>
                 <Typography sx={{ ...shapeText, fontSize: "22px" }}>
-                  never
+                  {t("never")}
                 </Typography>
               </Stack>
               <Stack direction="row" spacing={1}>
                 <Typography sx={{ ...shapeText, fontSize: "22px" }}>
-                  late
+                  {t("late")}
                 </Typography>
                 <Typography sx={{ ...whiteText, fontSize: "22px" }}>
-                  to
+                  {t("to")}
                 </Typography>
                 <Typography sx={{ ...shapeText, fontSize: "22px" }}>
-                  learn
+                  {t("learN")}
                 </Typography>
                 <Typography sx={{ ...whiteText, fontSize: "22px" }}>
                   !

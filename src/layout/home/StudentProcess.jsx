@@ -25,8 +25,11 @@ import careerSupport from "../../images/careerSupport.svg";
 import graduateStudent from "../../images/graduateStudent.svg";
 import startNewCareer from "../../images/startNewCareer.svg";
 import studentProcessBottomImage from "../../images/studentProcessBottomImage.svg";
+import { useTranslation } from "react-i18next";
 
 const StudentProcess = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Box sx={{ display: { xs: "none", sm: "none", lg: "block" } }}>
@@ -38,7 +41,7 @@ const StudentProcess = () => {
               position: "relative",
             }}
           >
-            <Typography sx={studentPTitle}>Student Process</Typography>
+            <Typography sx={studentPTitle}>{t("studentProcess")}</Typography>
             <Box mt={7} pl={5}>
               <img src="/image/studentProcess/Arrow 1.svg" alt="Arrow" />
             </Box>
@@ -72,12 +75,10 @@ const StudentProcess = () => {
                         <CardContent>
                           <Stack>
                             <Typography sx={studentPItemTitle}>
-                              Apply
+                              {t("apply")}
                             </Typography>
                             <Typography sx={studenItemText}>
-                              Read the details of the domain you are interested
-                              in. Enroll yourself by registering for the
-                              specific course.
+                              {t("readDetails")}
                             </Typography>
                           </Stack>
                         </CardContent>
@@ -107,10 +108,10 @@ const StudentProcess = () => {
                         <CardContent>
                           <Stack>
                             <Typography sx={studentPItemTitle}>
-                              Register
+                              {t("register")}
                             </Typography>
                             <Typography sx={studenItemText}>
-                              Sign the contract. Get ready for the course.
+                              {t("signContract")}
                             </Typography>
                           </Stack>
                         </CardContent>
@@ -140,12 +141,10 @@ const StudentProcess = () => {
                         <CardContent>
                           <Stack>
                             <Typography sx={studentPItemTitle}>
-                              Orientation
+                              {t("orientation")}
                             </Typography>
                             <Typography sx={studenItemText}>
-                              Come to the orientation. Start the class. Know the
-                              rules and regulations. Installation of necessary
-                              tools and get access to learning materials.
+                              {t("comeToOrientation")}
                             </Typography>
                           </Stack>
                         </CardContent>
@@ -175,11 +174,10 @@ const StudentProcess = () => {
                         <CardContent>
                           <Stack>
                             <Typography sx={studentPItemTitle}>
-                              Career preparation support
+                              {t("careerPreparation")}
                             </Typography>
                             <Typography sx={studenItemText}>
-                              Prepare your professional resume. Prepare the
-                              project descriptions.
+                              {t("prepareResume")}
                             </Typography>
                           </Stack>
                         </CardContent>
@@ -209,13 +207,10 @@ const StudentProcess = () => {
                         <CardContent>
                           <Stack>
                             <Typography sx={studentPItemTitle}>
-                              Market support
+                              {t("marketSupport")}
                             </Typography>
                             <Typography sx={studenItemText}>
-                              Follow up. Review sessions. Alumni sessions.
-                              1-on-1 support. References and support from our
-                              recruiting partners. Sharing job posts. Other job
-                              support as needed.
+                              {t("followUp")}
                             </Typography>
                           </Stack>
                         </CardContent>
@@ -245,10 +240,10 @@ const StudentProcess = () => {
                         <CardContent>
                           <Stack>
                             <Typography sx={studentPItemTitle}>
-                              Final interview
+                              {t("finalInterview")}
                             </Typography>
                             <Typography sx={studenItemText}>
-                              Final project. MOC interviews. Mentoring.
+                              {t("finalProject")}
                             </Typography>
                           </Stack>
                         </CardContent>
@@ -278,11 +273,10 @@ const StudentProcess = () => {
                         <CardContent>
                           <Stack>
                             <Typography sx={studentPItemTitle}>
-                              Graduate
+                              {t("graduate")}
                             </Typography>
                             <Typography sx={studenItemText}>
-                              Acquire certification in the chosen domain.
-                              Prepare for a new career.
+                              {t("acquireCertification")}
                             </Typography>
                           </Stack>
                         </CardContent>
@@ -312,11 +306,10 @@ const StudentProcess = () => {
                         <CardContent>
                           <Stack>
                             <Typography sx={studentPItemTitle}>
-                              Start new career
+                              {t("startNewCareer")}
                             </Typography>
                             <Typography sx={studenItemText}>
-                              Encounter manifold career opportunities in your
-                              domain.
+                              {t("encounterManifold")}
                             </Typography>
                           </Stack>
                         </CardContent>
@@ -331,12 +324,17 @@ const StudentProcess = () => {
               <Spacer count={5} />
             </Box>
           </Box>
+
+          {/* {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{XS and SM section starts here .....................................}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}} */}
+          {/* {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{XS and SM section starts here .....................................}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}} */}
+          {/* {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{XS and SM section starts here .....................................}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}} */}
+
           <Box
             sx={{
               display: { lg: "none", xs: "block", sm: "block" },
             }}
           >
-            <Typography sx={studentPTitle}>Student Process</Typography>
+            <Typography sx={studentPTitle}>{t("studentProcess")}</Typography>
             <Spacer count={3} />
             <Grid container>
               <Grid item sm={6} xs={12}>
@@ -356,11 +354,11 @@ const StudentProcess = () => {
                     <CardActionArea>
                       <CardContent>
                         <Stack>
-                          <Typography sx={studentPItemTitle}>Apply</Typography>
+                          <Typography sx={studentPItemTitle}>
+                            {t("apply")}
+                          </Typography>
                           <Typography sx={studenItemText}>
-                            Read the details of the domain you are interested
-                            in. Enroll yourself by registering for the specific
-                            course.
+                            {t("readDetails")}
                           </Typography>
                         </Stack>
                       </CardContent>
@@ -390,10 +388,10 @@ const StudentProcess = () => {
                       <CardContent>
                         <Stack>
                           <Typography sx={studentPItemTitle}>
-                            Register
+                            {t("register")}
                           </Typography>
                           <Typography sx={studenItemText}>
-                            Sign the contract. Get ready for the course.
+                            {t("signContract")}
                           </Typography>
                         </Stack>
                       </CardContent>
@@ -419,12 +417,10 @@ const StudentProcess = () => {
                       <CardContent>
                         <Stack>
                           <Typography sx={studentPItemTitle}>
-                            Orientation
+                            {t("orientation")}
                           </Typography>
                           <Typography sx={studenItemText}>
-                            Come to the orientation. Start the class. Know the
-                            rules and regulations. Installation of necessary
-                            tools and get access to learning materials.
+                            {t("comeToOrientation")}
                           </Typography>
                         </Stack>
                       </CardContent>
@@ -454,11 +450,10 @@ const StudentProcess = () => {
                       <CardContent>
                         <Stack>
                           <Typography sx={studentPItemTitle}>
-                            Career preparation support
+                            {t("careerPreparation")}
                           </Typography>
                           <Typography sx={studenItemText}>
-                            Prepare your professional resume. Prepare the
-                            project descriptions.
+                            {t("prepareResume")}
                           </Typography>
                         </Stack>
                       </CardContent>
@@ -488,13 +483,10 @@ const StudentProcess = () => {
                       <CardContent>
                         <Stack>
                           <Typography sx={studentPItemTitle}>
-                            Market support
+                            {t("marketSupport")}
                           </Typography>
                           <Typography sx={studenItemText}>
-                            Follow up. Review sessions. Alumni sessions. 1-on-1
-                            support. References and support from our recruiting
-                            partners. Sharing job posts. Other job support as
-                            needed.
+                            {t("followUp")}
                           </Typography>
                         </Stack>
                       </CardContent>
@@ -520,10 +512,10 @@ const StudentProcess = () => {
                       <CardContent>
                         <Stack>
                           <Typography sx={studentPItemTitle}>
-                            Final interview
+                            {t("finalInterview")}
                           </Typography>
                           <Typography sx={studenItemText}>
-                            Final project. MOC interviews. Mentoring.
+                            {t("finalProject")}
                           </Typography>
                         </Stack>
                       </CardContent>
@@ -553,11 +545,10 @@ const StudentProcess = () => {
                       <CardContent>
                         <Stack>
                           <Typography sx={studentPItemTitle}>
-                            Graduate
+                            {t("graduate")}
                           </Typography>
                           <Typography sx={studenItemText}>
-                            Acquire certification in the chosen domain. Prepare
-                            for a new career.
+                            {t("acquireCertification")}
                           </Typography>
                         </Stack>
                       </CardContent>
@@ -580,7 +571,7 @@ const StudentProcess = () => {
           <Typography
             sx={{ ...studentPTitle, fontSize: "24px", marginBottom: "20px" }}
           >
-            Student Process
+            {t("studentProcess")}
           </Typography>
           <Grid container spacing={3}>
             <Grid item xs={12} sm={6}>
@@ -611,12 +602,10 @@ const StudentProcess = () => {
                         <CardContent>
                           <Stack>
                             <Typography sx={studentPItemTitle}>
-                              Apply
+                              {t("apply")}
                             </Typography>
                             <Typography sx={studenItemText}>
-                              Read the details of the domain you are interested
-                              in. Enroll yourself by registering for the
-                              specific course.
+                              {t("readDetails")}
                             </Typography>
                           </Stack>
                         </CardContent>
@@ -654,10 +643,10 @@ const StudentProcess = () => {
                         <CardContent>
                           <Stack>
                             <Typography sx={studentPItemTitle}>
-                              Register
+                              {t("register")}
                             </Typography>
                             <Typography sx={studenItemText}>
-                              Sign the contract. Get ready for the course.
+                              {t("signContract")}
                             </Typography>
                           </Stack>
                         </CardContent>
@@ -695,12 +684,10 @@ const StudentProcess = () => {
                         <CardContent>
                           <Stack>
                             <Typography sx={studentPItemTitle}>
-                              Orientation
+                              {t("orientation")}
                             </Typography>
                             <Typography sx={studenItemText}>
-                              Come to the orientation. Start the class. Know the
-                              rules and regulations. Installation of necessary
-                              tools and get access to learning materials.
+                              {t("comeToOrientation")}
                             </Typography>
                           </Stack>
                         </CardContent>
@@ -738,10 +725,10 @@ const StudentProcess = () => {
                         <CardContent>
                           <Stack>
                             <Typography sx={studentPItemTitle}>
-                              Final interview
+                              {t("finalInterview")}
                             </Typography>
                             <Typography sx={studenItemText}>
-                              Final project. MOC interviews. Mentoring.
+                              {t("finalProject")}
                             </Typography>
                           </Stack>
                         </CardContent>
@@ -779,13 +766,10 @@ const StudentProcess = () => {
                         <CardContent>
                           <Stack>
                             <Typography sx={studentPItemTitle}>
-                              Market support
+                              {t("marketSupport")}
                             </Typography>
                             <Typography sx={studenItemText}>
-                              Follow up. Review sessions. Alumni sessions.
-                              1-on-1 support. References and support from our
-                              recruiting partners. Sharing job posts. Other job
-                              support as needed.
+                              {t("followUp")}
                             </Typography>
                           </Stack>
                         </CardContent>
@@ -823,11 +807,10 @@ const StudentProcess = () => {
                         <CardContent>
                           <Stack>
                             <Typography sx={studentPItemTitle}>
-                              Career preparation support
+                              {t("careerPreparation")}
                             </Typography>
                             <Typography sx={studenItemText}>
-                              Prepare your professional resume. Prepare the
-                              project descriptions.
+                              {t("prepareResume")}
                             </Typography>
                           </Stack>
                         </CardContent>
@@ -865,11 +848,10 @@ const StudentProcess = () => {
                         <CardContent>
                           <Stack>
                             <Typography sx={studentPItemTitle}>
-                              Graduate
+                              {t("graduate")}
                             </Typography>
                             <Typography sx={studenItemText}>
-                              Acquire certification in the chosen domain.
-                              Prepare for a new career.
+                              {t("acquireCertification")}
                             </Typography>
                           </Stack>
                         </CardContent>
@@ -907,11 +889,10 @@ const StudentProcess = () => {
                         <CardContent>
                           <Stack>
                             <Typography sx={studentPItemTitle}>
-                              Start new career
+                              {t("startNewCareer")}
                             </Typography>
                             <Typography sx={studenItemText}>
-                              Encounter manifold career opportunities in your
-                              domain.
+                              {t("encounterManifold")}
                             </Typography>
                           </Stack>
                         </CardContent>

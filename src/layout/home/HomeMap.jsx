@@ -6,8 +6,11 @@ import {
   mapBg,
 } from "../../style/homeStyle.mjs";
 import { homeExperienceBoxStyle } from "../../style/homeStyle.mjs";
+import { useTranslation } from "react-i18next";
 
 const HomeMap = () => {
+  const { t } = useTranslation();
+
   return (
     <Box sx={{ display: { xs: "none", sm: "block", lg: "block" } }}>
       <Grid container alignItems="center">
@@ -26,7 +29,7 @@ const HomeMap = () => {
                 <Typography sx={homeExperienceStyle}>+4</Typography>
               </Box>
               <Typography sx={homeTextStyle}>
-                year <br /> experience
+                {t("year")} <br /> {t("experience")}
               </Typography>
             </Stack>
             <Stack
@@ -39,7 +42,7 @@ const HomeMap = () => {
                 <Typography sx={homeExperienceStyle}>+100</Typography>
               </Box>
               <Typography sx={homeTextStyle}>
-                students <br /> every season
+                {t("students")} <br /> {t("everySeason")}
               </Typography>
             </Stack>
             <Stack
@@ -52,7 +55,7 @@ const HomeMap = () => {
                 <Typography sx={homeExperienceStyle}>+10</Typography>
               </Box>
               <Typography sx={homeTextStyle}>
-                qualified <br /> teachers
+                {t("qualified")} <br /> {t("teachers")}
               </Typography>
             </Stack>
           </Stack>

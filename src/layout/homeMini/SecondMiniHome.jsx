@@ -5,8 +5,11 @@ import {
   homeExperienceStyle,
   homeTextStyle,
 } from "../../style/homeStyle.mjs";
+import { useTranslation } from "react-i18next";
 
 const SecondMiniHome = () => {
+  const { t } = useTranslation();
+
   return (
     <Container>
       <Box sx={{ display: { xs: "block", sm: "none", lg: "none" }, pl: "25%" }}>
@@ -19,10 +22,10 @@ const SecondMiniHome = () => {
             </Box>
             <Stack spacing={-1}>
               <Typography sx={{ ...homeTextStyle, fontSize: "20px" }}>
-                year
+                {t("year")}
               </Typography>
               <Typography sx={{ ...homeTextStyle, fontSize: "20px" }}>
-                experience
+                {t("experience")}
               </Typography>
             </Stack>
           </Stack>
@@ -34,10 +37,10 @@ const SecondMiniHome = () => {
             </Box>
             <Stack spacing={-1}>
               <Typography sx={{ ...homeTextStyle, fontSize: "20px" }}>
-                students
+                {t("students")}
               </Typography>
               <Typography sx={{ ...homeTextStyle, fontSize: "20px" }}>
-                every season
+                {t("everySeason")}
               </Typography>
             </Stack>
           </Stack>
@@ -49,10 +52,10 @@ const SecondMiniHome = () => {
             </Box>
             <Stack spacing={-1}>
               <Typography sx={{ ...homeTextStyle, fontSize: "20px" }}>
-                qualified
+                {t("qualified")}
               </Typography>
               <Typography sx={{ ...homeTextStyle, fontSize: "20px" }}>
-                teachers
+                {t("teachers")}
               </Typography>
             </Stack>
           </Stack>

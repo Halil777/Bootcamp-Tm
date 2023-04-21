@@ -71,33 +71,6 @@ const StyledMenu = styled((props) => (
 
 function Navbar() {
   const location = useLocation();
-  const [lng, setLng] = React.useState("en");
-
-  useEffect(() => {
-    if (lng === "tm" || lng === "" || lng === undefined) {
-      i18n.changeLanguage("tm");
-      localStorage.setItem("lng", "tm");
-    } else if (lng === "en") {
-      i18n.changeLanguage("en");
-      localStorage.setItem("lng", "en");
-    } else {
-      i18n.changeLanguage("ru");
-      localStorage.setItem("lng", "ru");
-    }
-  }, [lng]);
-
-  const handleChange = (event) => {
-    setLng(event.target.value);
-  };
-
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
 
   const { t } = useTranslation();
   const [state, setState] = useState({
@@ -113,6 +86,44 @@ function Navbar() {
     }
 
     setState({ ...state, [anchor]: open });
+  };
+
+  const { i18n } = useTranslation();
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [selectedLanguage, setSelectedLanguage] = useState(
+    localStorage.getItem("lng") || "tm"
+  );
+
+  useEffect(() => {
+    i18n.changeLanguage(selectedLanguage);
+    localStorage.setItem("lng", selectedLanguage);
+  }, [selectedLanguage, i18n]);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLanguageChange = (lng) => {
+    setSelectedLanguage(lng);
+    handleClose();
+  };
+
+  const renderLanguageIcon = () => {
+    switch (selectedLanguage) {
+      case "tm":
+        return <span style={{ fontSize: "16px", color: "#fff" }}>TM</span>;
+      case "en":
+        return <span style={{ fontSize: "16px", color: "#fff" }}>EN</span>;
+      case "ru":
+        return <span style={{ fontSize: "16px", color: "#fff" }}>RU</span>;
+      default:
+        return <TranslateIcon sx={{ fontSize: "14px" }} />;
+    }
   };
 
   const list = (anchor) => (
@@ -194,12 +205,12 @@ function Navbar() {
               <Stack direction="row" spacing={2}>
                 <img src={logo1} alt="logo 1" />
                 {/* lagnuage section starts here ....... */}
-                <div>
-                  <IconButton sx={languageStyle} onClick={handleClick}>
-                    <Stack direction="row" spacing={0} alignItems="center">
-                      <TranslateIcon sx={{ fontSize: "17px" }} />
+                <>
+                  <IconButton onClick={handleClick}>
+                    <div style={{ display: "flex", alignItems: "center" }}>
+                      {renderLanguageIcon()}
                       <ArrowDropDownIcon sx={{ fontSize: "17px" }} />
-                    </Stack>
+                    </div>
                   </IconButton>
                   <StyledMenu
                     id="demo-customized-menu"
@@ -207,49 +218,26 @@ function Navbar() {
                       "aria-labelledby": "demo-customized-button",
                     }}
                     anchorEl={anchorEl}
-                    open={open}
+                    open={Boolean(anchorEl)}
                     onClose={handleClose}
                   >
-                    <MenuItem
-                      onChange={(e) =>
-                        setLng(
-                          i18n.changeLanguage("tm"),
-                          localStorage.setItem("lng", "tm")
-                        )
-                      }
-                      value={"tm"}
-                      // onChange={(e) => setLng(e.target.value)}
-                    >
+                    <MenuItem onClick={() => handleLanguageChange("tm")}>
                       TM
                     </MenuItem>
-                    <MenuItem
-                      value={"en"}
-                      onChange={(e) =>
-                        setLng(
-                          i18n.changeLanguage("en"),
-                          localStorage.setItem("lng", "en")
-                        )
-                      }
-                    >
+                    <MenuItem onClick={() => handleLanguageChange("en")}>
                       ENG
                     </MenuItem>
-                    <MenuItem
-                      value={"ru"}
-                      onChange={(e) =>
-                        setLng(
-                          i18n.changeLanguage("ru"),
-                          localStorage.setItem("lng", "ru")
-                        )
-                      }
-                    >
+                    <MenuItem onClick={() => handleLanguageChange("ru")}>
                       RU
                     </MenuItem>
                   </StyledMenu>
-                </div>
+                </>
                 {/* language section ends here ......... */}
-                <IconButton sx={iconStyle}>
-                  <PersonOutlineOutlinedIcon />
-                </IconButton>
+                <Link to={"sign-in"}>
+                  <IconButton sx={iconStyle}>
+                    <PersonOutlineOutlinedIcon />
+                  </IconButton>
+                </Link>
               </Stack>
             </Stack>
           </Container>

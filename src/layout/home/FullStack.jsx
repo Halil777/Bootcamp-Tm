@@ -9,8 +9,11 @@ import {
   lineFullStack,
 } from "../../style/homeStyle.mjs";
 import fullStackHome from "../../images/fullStackHome.svg";
+import { useTranslation } from "react-i18next";
 
 const FullStack = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Box
@@ -27,11 +30,11 @@ const FullStack = () => {
               <Grid item lg={6}>
                 <Stack spacing={2}>
                   <Typography sx={homeappDevelopment}>
-                    Full-stack web <br /> development
+                    {t("fullStack")}
+                    <br /> {t("development")}
                   </Typography>
-                  <Typography sx={fullstackText}>
-                    Web developer is highly needed <br /> profession in nowadays
-                    . Become Full stack <br /> developer in BootcampTm.
+                  <Typography width="60%" sx={fullstackText}>
+                    {t("webDeveloper")}
                   </Typography>
                   <Stack direction="row" spacing={1}>
                     <Button sx={dartButton} variant="contained">
@@ -65,7 +68,7 @@ const FullStack = () => {
                     </Button>
                   </Stack>
                   <Button sx={homeViewButton} variant="contained">
-                    View details
+                    {t("viewDetails")}
                   </Button>
                 </Stack>
               </Grid>

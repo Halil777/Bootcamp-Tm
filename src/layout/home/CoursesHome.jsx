@@ -12,6 +12,7 @@ import {
   homeViewButton,
 } from "../../style/homeStyle.mjs";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const CoursesHome = () => {
   const location = useNavigate();
@@ -20,12 +21,14 @@ const CoursesHome = () => {
     location("/appDevelopmentCourses");
   };
 
+  const { t } = useTranslation();
+
   return (
     <>
       <Box sx={{ display: { xs: "none", sm: "none", lg: "block" } }}>
         <Container>
           <Box sx={dugaStyle} mt={7}>
-            <Typography sx={coureseStyle}> Courses we offer</Typography>
+            <Typography sx={coureseStyle}> {t("CoursesOffer")}</Typography>
             <Box sx={{ paddingTop: { xs: "50px", sm: "50px", lg: "0px" } }}>
               <img
                 src={group}
@@ -48,10 +51,12 @@ const CoursesHome = () => {
               alignItems="center"
             >
               <Stack spacing={2}>
-                <Typography sx={homeappDevelopment}>App Development</Typography>
-                <Typography sx={{ width: "50%", color: "#f4f4f4" }}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Minima error alias quasi libero unde officiis.
+                <Typography sx={homeappDevelopment}>
+                  {t("appDevelopment")}
+                </Typography>
+                <Typography sx={{ width: "60%", color: "#f4f4f4" }}>
+                  {t("learn")} <br /> {t("mobilApp")} <br />
+                  {t("qualifiedTeacher")}
                 </Typography>
                 <Stack direction={"row"} spacing={2}>
                   <Button sx={dartButton} variant="contained">
@@ -76,7 +81,7 @@ const CoursesHome = () => {
                   sx={homeViewButton}
                   variant="contained"
                 >
-                  View details
+                  {t("viewDetails")}
                 </Button>
               </Stack>
             </Grid>

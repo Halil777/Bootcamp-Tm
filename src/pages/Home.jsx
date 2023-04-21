@@ -24,8 +24,42 @@ import Start from "../layout/homeMini/Start.jsx";
 import SecondMiniHome from "../layout/homeMini/SecondMiniHome.jsx";
 import CoursesHomeMini from "../layout/homeMini/CoursesHomeMini.jsx";
 import FullStackMini from "../layout/homeMini/FullStackMini.jsx";
+import { useTranslation } from "react-i18next";
+import { useState } from "react";
+import { useEffect } from "react";
+
+function getStackContent(selectedLanguage, t) {
+  const startNew = t("startNew");
+  const startNCont = t("startNCont");
+  const bootcampTm = t("bootcampTm");
+
+  if (selectedLanguage === "tm") {
+    return (
+      <>
+        <Typography sx={homeTitleFirst}>{startNew}</Typography>
+        <Typography sx={homeTitleSecond}>{bootcampTm}</Typography>
+        <Typography sx={homeTitleFirst}>{startNCont}</Typography>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Typography sx={homeTitleFirst}>{startNew}</Typography>
+        <Typography sx={homeTitleFirst}>{startNCont}</Typography>
+        <Typography sx={homeTitleSecond}>{bootcampTm}</Typography>
+      </>
+    );
+  }
+}
 
 const Home = () => {
+  const { t, i18n } = useTranslation();
+  const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
+
+  useEffect(() => {
+    setSelectedLanguage(i18n.language);
+  }, [i18n.language]);
+
   return (
     <>
       <Container>
@@ -34,20 +68,15 @@ const Home = () => {
             <Grid item sm={12} lg={6} xs={12} zIndex={10}>
               <Stack spacing={2}>
                 <Button sx={homeFirstButton} variant="contained">
-                  First bootcamp in Turkmenistan
+                  {t("fisrtBootcamp")}
                 </Button>
-                <Stack>
-                  <Typography sx={homeTitleFirst}>
-                    Start your new <br /> career journey with
-                  </Typography>
-                  <Typography sx={homeTitleSecond}>BootcampTm</Typography>
-                </Stack>
+                <Stack>{getStackContent(selectedLanguage, t)}</Stack>
                 <Stack direction="row" spacing={2}>
                   <Button variant="contained" sx={enrollButton}>
-                    Enroll right now
+                    {t("enrolNow")}
                   </Button>
                   <Button variant="outlined" sx={coursesButton}>
-                    Courses
+                    {t("courses")}
                   </Button>
                 </Stack>
               </Stack>

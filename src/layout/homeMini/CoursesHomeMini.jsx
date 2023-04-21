@@ -8,15 +8,18 @@ import {
 } from "../../style/homeStyle.mjs";
 import flutterLogo from "../../images/flutterLogo.svg";
 import dartLogo from "../../images/dartLogo.svg";
+import { useTranslation } from "react-i18next";
 
 const CoursesHomeMini = () => {
+  const { t } = useTranslation();
+
   return (
     <Box sx={{ display: { sm: "block", xs: "block", lg: "none" } }}>
       <Container>
         <Typography
           sx={{ ...coureseStyle, textAlign: "center", fontSize: "24px" }}
         >
-          Courses we offer
+          {t("CoursesOffer")}
         </Typography>
         <Grid container alignItems="center">
           <Grid
@@ -33,7 +36,7 @@ const CoursesHomeMini = () => {
                   fontSize: "30px",
                 }}
               >
-                App development
+                {t("appDevelopment")}
               </Typography>
               <Typography
                 sx={{
@@ -44,8 +47,8 @@ const CoursesHomeMini = () => {
                   textAlign: { sm: "start", xs: "center" },
                 }}
               >
-                Learn how to create IOS and Android <br /> mobile applications
-                in Bootcamp <br /> with qualified teachers.
+                {t("learn")} <br /> {t("mobilApp")} <br />
+                {t("qualifiedTeacher")}
               </Typography>
             </Stack>
           </Grid>
@@ -76,7 +79,7 @@ const CoursesHomeMini = () => {
                 </Button>
               </Stack>
               <Button sx={homeViewButton} variant="contained">
-                View details
+                {t("viewDetails")}
               </Button>
             </Stack>
           </Grid>

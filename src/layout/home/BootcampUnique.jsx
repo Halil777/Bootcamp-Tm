@@ -15,14 +15,17 @@ import {
   uniqueText,
 } from "../../style/homeStyle.mjs";
 import btImage from "../../images/bootcampImg.png";
+import { useTranslation } from "react-i18next";
 
 const BootcampUnique = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Box sx={{ display: { xs: "none", sm: "none", lg: "block" } }}>
         <Container>
-          <Typography sx={uniqueText}>
-            What makes our <br /> bootcampm unique?
+          <Typography width="40%" sx={uniqueText}>
+            {t("bootcampUnique")}
           </Typography>
           <Grid container>
             <Grid lg={6} sm={12} xs={12}>
@@ -40,11 +43,11 @@ const BootcampUnique = () => {
                     <CardActionArea>
                       <CardContent>
                         <Stack spacing={2}>
-                          <Typography sx={bottcampTitle}>Affordable</Typography>
+                          <Typography sx={bottcampTitle}>
+                            {t("affordable")}
+                          </Typography>
                           <Typography sx={bottcampText}>
-                            BootcampTm is all about people having another chance
-                            in an IT career, that’s why we offer everyone
-                            affordable payment plans.
+                            {t("bootcampPayment")}
                           </Typography>
                         </Stack>
                       </CardContent>
@@ -65,13 +68,10 @@ const BootcampUnique = () => {
                       <CardContent>
                         <Stack spacing={2}>
                           <Typography sx={bottcampTitle}>
-                            Professional support
+                            {t("professionalSupport")}
                           </Typography>
                           <Typography sx={bottcampText}>
-                            Every batch has a limited number of students, so the
-                            instructors, mentors, and support team know every
-                            student by name and support them in whatever they
-                            need.
+                            {t("everyBatch")}
                           </Typography>
                         </Stack>
                       </CardContent>
@@ -92,12 +92,10 @@ const BootcampUnique = () => {
                       <CardContent>
                         <Stack spacing={2}>
                           <Typography sx={bottcampTitle}>
-                            Dynamic curriculum
+                            {t("dynamicCurriculum")}
                           </Typography>
                           <Typography sx={bottcampText}>
-                            Every session is different. We believe in providing
-                            up-to-date knowledge that matches current technology
-                            and trend.
+                            {t("everySession")}
                           </Typography>
                         </Stack>
                       </CardContent>
@@ -130,7 +128,7 @@ const BootcampUnique = () => {
                 // }}
               >
                 <Typography sx={{ ...uniqueText, fontSize: "24px" }}>
-                  What makes our <br /> bootcampm unique?
+                  {t("bootcampUnique")}
                 </Typography>
                 <Card
                   sx={{
@@ -144,11 +142,11 @@ const BootcampUnique = () => {
                   <CardActionArea>
                     <CardContent>
                       <Stack spacing={2}>
-                        <Typography sx={bottcampTitle}>Affordable</Typography>
+                        <Typography sx={bottcampTitle}>
+                          {t("affordable")}
+                        </Typography>
                         <Typography sx={bottcampText}>
-                          BootcampTm is all about people having another chance
-                          in an IT career, that’s why we offer everyone
-                          affordable payment plans.
+                          {t("bootcampPayment")}
                         </Typography>
                       </Stack>
                     </CardContent>
@@ -167,13 +165,10 @@ const BootcampUnique = () => {
                     <CardContent>
                       <Stack spacing={2}>
                         <Typography sx={bottcampTitle}>
-                          Professional support
+                          {t("professionalSupport")}
                         </Typography>
                         <Typography sx={bottcampText}>
-                          Every batch has a limited number of students, so the
-                          instructors, mentors, and support team know every
-                          student by name and support them in whatever they
-                          need.
+                          {t("everyBatch")}
                         </Typography>
                       </Stack>
                     </CardContent>
@@ -192,12 +187,10 @@ const BootcampUnique = () => {
                     <CardContent>
                       <Stack spacing={2}>
                         <Typography sx={bottcampTitle}>
-                          Dynamic curriculum
+                          {t("dynamicCurriculum")}
                         </Typography>
                         <Typography sx={bottcampText}>
-                          Every session is different. We believe in providing
-                          up-to-date knowledge that matches current technology
-                          and trend.
+                          {t("everySession")}
                         </Typography>
                       </Stack>
                     </CardContent>

@@ -67,13 +67,14 @@ const Footer = () => {
   return (
     <>
       <Box
+        zIndex={100}
         sx={{
           ...footerStyle,
           display: { lg: "block", sm: "none", xs: "none" },
         }}
       >
         <Container>
-          <Grid container pt={"55.1px"}>
+          <Grid container pt={"55.1px"} zIndex={100}>
             <Grid item sm={4} xs={12} lg={2}>
               <Stack>
                 <img src={logo} alt="logo" />

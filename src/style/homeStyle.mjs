@@ -127,7 +127,7 @@ export const dartButton = {
 
 export const homeViewButton = {
   textTransform: "none",
-  width: "150px",
+  width: "200px",
   color: "#f4f4f4",
   fontWeight: "600",
   fontFamily: "AppRegular",

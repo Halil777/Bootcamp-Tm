@@ -9,8 +9,11 @@ import "swiper/css/autoplay";
 import ourPartnersSanlyBilim from "../../images/ourPartnersSanlyBilim.svg";
 import ourPartnestCarouselSecond from "../../images/ourPartnestCarouselSecond.svg";
 import { ourPartnersItemName } from "../../style/homeStyle.mjs";
+import { useTranslation } from "react-i18next";
 
 const OUrCarousel = () => {
+  const { t } = useTranslation();
+
   function createSlide() {
     return (
       <SwiperSlide>
@@ -30,9 +33,7 @@ const OUrCarousel = () => {
             src={ourPartnestCarouselSecond}
             alt="ourPartnestCarouselSecond.svg"
           />
-          <Typography sx={ourPartnersItemName}>
-            Launch <br /> Life
-          </Typography>
+          <Typography sx={ourPartnersItemName}>{t("launchLife")}</Typography>
         </Stack>
       </SwiperSlide>
     );
@@ -50,7 +51,7 @@ const OUrCarousel = () => {
               fontWeight: "700",
             }}
           >
-            Our partners
+            {t("ourPartners")}
           </Typography>
           <Spacer count={3} />
           <Swiper
@@ -77,7 +78,7 @@ const OUrCarousel = () => {
               fontWeight: "700",
             }}
           >
-            Our partners
+            {t("ourPartners")}
           </Typography>
           <Spacer count={1} />
           <Swiper

@@ -1043,7 +1043,7 @@
   dependencies:
     regenerator-runtime "^0.13.11"
 
-"@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.4", "@babel/runtime@^7.8.3":
+"@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.8.3":
   version "7.21.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.21.0.tgz#5b55c9d394e5fcf304909a8b00c07dc217b56673"
   integrity sha512-xwII0//EObnq89Ji5AKYQaRYiW/nZ3llSv29d49IuxPhKbtJoLP+9QUUZ4nVragQVtaVGeZrpB+ZtG/Pdy/POw==
@@ -2536,6 +2536,11 @@
     "@typescript-eslint/types" "5.51.0"
     eslint-visitor-keys "^3.3.0"
 
+"@videojs-player/react@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@videojs-player/react/-/react-1.0.0.tgz#6de1eb00139afed95730528a8db0123a7ceb2a60"
+  integrity sha512-cEPvG1b+B4EG494N3oGxACRce8WW2l+ewIznH/SDoNCWvbVMeSqKy1l6qKr0Zy/dejwKtvWiOamoBWuVEfoR3g==
+
 "@videojs/http-streaming@3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@videojs/http-streaming/-/http-streaming-3.0.0.tgz#3ee879761f7a990672b98c23ddb4cd7085005bfc"
@@ -3454,6 +3459,11 @@ cjs-module-lexer@^1.0.0:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/cjs-module-lexer/-/cjs-module-lexer-1.2.2.tgz#9f84ba3244a512f3a54e5277e8eef4c489864e40"
   integrity sha512-cOU9usZw8/dXIXKtwa8pM0OTJQuJkxMN6w30csNRUerHfeQ5R6U3kkU/FtJeIf3M202OHfY2U8ccInBG7/xogA==
+
+classnames@^2.2.6:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.2.tgz#351d813bf0137fcc6a76a16b88208d2560a0d924"
+  integrity sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==
 
 clean-css@^5.2.2:
   version "5.3.2"
@@ -8222,6 +8232,11 @@ react-fast-compare@^3.0.1:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
   integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
 
+react-html5video@^2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/react-html5video/-/react-html5video-2.5.1.tgz#bbc4314be1d583cb991a11ca3480e70a3c964caf"
+  integrity sha512-ELx5VIRJMIztYo7jdh0Xp1Ah6CziK3KGbwWsMOlNYyIUQHjFbjAEiAF8uY5CzVLofOA1159pbFgcVAPJSuqG2g==
+
 react-i18next@^12.1.5:
   version "12.1.5"
   resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-12.1.5.tgz#b65f5733dd2f96188a9359c009b7dbe27443f009"
@@ -8414,6 +8429,11 @@ react-video-players@^0.1.11:
     prop-types "^15.6.1"
     youtube-player "^5.5.0"
 
+react-video-thumbnail@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/react-video-thumbnail/-/react-video-thumbnail-0.1.3.tgz#698dc4f4e7bebcb598425929db231a78cbcdbdcd"
+  integrity sha512-ZakEVv9RNFcziAnHHtwod5tf0yMVv4aLZ8/QsCxt1HTnKRHrlylvolPKv1hr63GCwnPu6tgPjUTDKRqfl30lOQ==
+
 react-videoplayer@^0.6.4:
   version "0.6.4"
   resolved "https://registry.yarnpkg.com/react-videoplayer/-/react-videoplayer-0.6.4.tgz#44f3af7264b9c4074e0f67a627ea6f0609cc5b80"
@@ -8487,6 +8507,13 @@ redent@^3.0.0:
   dependencies:
     indent-string "^4.0.0"
     strip-indent "^3.0.0"
+
+redux@^4.0.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/redux/-/redux-4.2.1.tgz#c08f4306826c49b5e9dc901dee0452ea8fce6197"
+  integrity sha512-LAUYz4lc+Do8/g7aeRa8JkyDErK6ekstQaqWQrNRW//MY1TvCEpMtpTWvlQ+FPbWCx+Xixu/6SHt5N0HR+SB4w==
+  dependencies:
+    "@babel/runtime" "^7.9.2"
 
 regenerate-unicode-properties@^10.1.0:
   version "10.1.0"
@@ -9726,6 +9753,17 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==
+
+video-react@^0.16.0:
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/video-react/-/video-react-0.16.0.tgz#dea71e9c4782eb088059c42225d189c437607911"
+  integrity sha512-138NHPS8bmgqCYVCdbv2GVFhXntemNHWGw9AN8iJSzr3jizXMmWJd2LTBppr4hZJUbyW1A1tPZ3CQXZUaexMVA==
+  dependencies:
+    "@babel/runtime" "^7.4.5"
+    classnames "^2.2.6"
+    lodash.throttle "^4.1.1"
+    prop-types "^15.7.2"
+    redux "^4.0.1"
 
 "video.js@^7 || ^8", video.js@^8.0.4:
   version "8.0.4"

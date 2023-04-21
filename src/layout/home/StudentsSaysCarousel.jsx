@@ -25,9 +25,13 @@ import {
   titleStudentSayCarousel,
 } from "../../style/homeStyle.mjs";
 import ExpandCircleDownOutlinedIcon from "@mui/icons-material/ExpandCircleDownOutlined";
+import { useTranslation } from "react-i18next";
 
 const StudentsSaysCarousel = () => {
+  const { t } = useTranslation();
+
   const swiper = useSwiper();
+
   function createSlide() {
     return (
       <SwiperSlide>
@@ -61,19 +65,13 @@ const StudentsSaysCarousel = () => {
                     fontSize: { lg: "14px", sm: "14px", xs: "12px" },
                   }}
                 >
-                  Launch Life
+                  {t("launchLife")}
                 </Typography>
               </Stack>
             </Stack>
             <Stack mt={5}>
               <Typography sx={textStudentSayCarousel}>
-                I am Lyudmila. I am Quality Control Engineer in Industrial
-                Construction. When I was younger, I heard many stories from
-                grandfather who was a civil engineer. The stories inspired me to
-                eventually become an engineer. My advice for woman..I am
-                Lyudmila. I am Quality Control Engineer in Industrial
-                Construction. When I was younger, I heard many stories from
-                grandfather who was a civil engineer.
+                {t("sliderText")}
               </Typography>
             </Stack>
           </CardActionArea>
@@ -93,7 +91,7 @@ const StudentsSaysCarousel = () => {
               fontWeight: "700",
             }}
           >
-            What our students say
+            {t("whatOurStudentsSay")}
           </Typography>
           <Spacer count={3} />
           <Swiper
@@ -115,7 +113,7 @@ const StudentsSaysCarousel = () => {
           >
             <Stack direction="row" spacing={2}>
               <Button variant="outlined" sx={leaveFeedbackBtn}>
-                Leave feedback
+                {t("leaveFeedback")}
               </Button>
               <Stack direction="row">
                 <IconButton
@@ -149,7 +147,7 @@ const StudentsSaysCarousel = () => {
               fontWeight: "700",
             }}
           >
-            What our students say
+            {t("whatOurStudentsSay")}
           </Typography>
           <Spacer count={2} />
           <Swiper
@@ -167,7 +165,7 @@ const StudentsSaysCarousel = () => {
           <Spacer count={1} />
           <Stack direction="row" justifyContent="center">
             <Button variant="outlined" sx={leaveFeedbackBtn}>
-              Leave feedback
+              {t("leaveFeedback")}
             </Button>
           </Stack>
         </Box>

@@ -9,8 +9,11 @@ import {
 } from "../../style/homeStyle.mjs";
 import learningEngagingPhoto from "../../images/Frame 42.svg";
 import Spacer from "../../components/Spacer.jsx";
+import { useTranslation } from "react-i18next";
 
 const LearningEngaging = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Container>
@@ -24,17 +27,19 @@ const LearningEngaging = () => {
             <Grid item lg={6} sm={12} xs={12} p={5}>
               <Stack>
                 <Stack direction="row" spacing={1}>
-                  <Typography sx={engagingTitle}>We make</Typography>
-                  <Typography sx={engagingTitleShape}>learning</Typography>
+                  <Typography sx={engagingTitle}>{t("weMake")}</Typography>
+                  <Typography sx={engagingTitleShape}>
+                    {t("learning")}
+                  </Typography>
                 </Stack>
-                <Typography sx={engagingTitle}>engaging</Typography>
+                <Typography sx={engagingTitle}>{t("engaging")}</Typography>
                 <Spacer count={1} />
-                <Typography sx={engagingText}>
-                  Choose you desired courses or <br /> webinars
+                <Typography width="90%" sx={engagingText}>
+                  {t("chooseYourDesired")}
                 </Typography>
                 <Spacer count={2} />
                 <Button variant="contained" sx={engagingBtn}>
-                  Enroll today
+                  {t("enrollToday")}
                 </Button>
               </Stack>
             </Grid>
@@ -71,24 +76,24 @@ const LearningEngaging = () => {
                 <Stack>
                   <Stack direction="row" spacing={1}>
                     <Typography sx={{ ...engagingTitle, fontSize: "22px" }}>
-                      We make
+                      {t("weMake")}
                     </Typography>
                     <Typography
                       sx={{ ...engagingTitleShape, fontSize: "22px" }}
                     >
-                      learning
+                      {t("learning")}
                     </Typography>
                   </Stack>
                   <Typography sx={{ ...engagingTitle, fontSize: "22px" }}>
-                    engaging
+                    {t("engaging")}
                   </Typography>
                   <Spacer count={1} />
                   <Typography sx={{ ...engagingText, fontSize: "12px" }}>
-                    Choose you desired courses or <br /> webinars
+                    {t("chooseYourDesired")}
                   </Typography>
                   <Spacer count={2} />
                   <Button variant="contained" sx={engagingBtn}>
-                    Enroll today
+                    {t("enrollToday")}
                   </Button>
                 </Stack>
               </Box>

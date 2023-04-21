@@ -1,41 +1,29 @@
 import React from "react";
-import VideoPlayer from "../components/VideoPlayer";
-import videojs from "video.js";
+// import { VideoPlayer } from "@videojs-player/react";
+// import "video.js/dist/video-js.css";
+import Spacer from "../components/Spacer";
+import videoo from "../video/Как стать хакером - Командная строка Windows(1).mp4";
 
 const VideoCourses = () => {
-  const playerRef = React.useRef(null);
-
-  const videoJsOptions = {
-    autoplay: true,
-    controls: true,
-    responsive: true,
-    fluid: true,
-    sources: [
-      {
-        src: "https://www.youtube.com/watch?v=6z14XOp9yxM",
-        type: "video/mp4",
-      },
-    ],
-  };
-
-  const handlePlayerReady = (player) => {
-    playerRef.current = player;
-
-    // You can handle player events here, for example:
-    player.on("waiting", () => {
-      videojs.log("player is waiting");
-    });
-
-    player.on("dispose", () => {
-      videojs.log("player will dispose");
-    });
-  };
   return (
-    <>
-      <div>Rest of app here</div>
-      <VideoPlayer options={videoJsOptions} onReady={handlePlayerReady} />
-      <div>Rest of app here</div>
-    </>
+    <div>
+      <Spacer count={3} />
+      {/* <VideoPlayer
+        src={videoo}
+        poster="/your-path/poster.jpg"
+        controls
+        loop={true}
+        volume={0.6}
+      /> */}
+      <video
+        src={videoo}
+        style={{ width: "50%", height: "50vh" }}
+        controls
+        loop
+        autoPlay
+        typeof="mp4"
+      ></video>
+    </div>
   );
 };
 

@@ -9,6 +9,9 @@ import Enroll from "./pages/Enroll";
 import Home from "./pages/Home";
 import VideoCourses from "./pages/VideoCourses";
 import AppDevelopmentCourses from "./layout/appDevelopmentCourses/AppDevelopmentCourses";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import ScrollToTop from "./components/ScrollToTop";
 
 export const AppContext = createContext({});
 
@@ -25,6 +28,10 @@ function App() {
       changeLanguage(lng);
     }
   });
+
+  useEffect(() => {
+    console.clear();
+  }, []);
   return (
     <>
       <AppContext.Provider
@@ -34,6 +41,7 @@ function App() {
         }}
       >
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route path={"/"} element={<Index />}>
               <Route path={"/about"} element={<About />} />
@@ -43,6 +51,8 @@ function App() {
               <Route path="/videoCourses" element={<VideoCourses />} />
               <Route path="/about" element={<About />} />
               <Route path="/contactUs" element={<ContactUs />} />
+              <Route path="/sign-in" element={<SignIn />} />
+              <Route path="/sign-up" element={<SignUp />} />
               <Route
                 path="/appDevelopmentCourses"
                 element={<AppDevelopmentCourses />}

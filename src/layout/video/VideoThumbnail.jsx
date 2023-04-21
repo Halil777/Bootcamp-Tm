@@ -1,28 +1,30 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
-function VideoThumbnail(props) {
+function VideoThumbnail({ url }) {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
+  const [thumbnail, setThumbnail] = useState(null);
 
-  function handleLoadedMetadata() {
-    const video = videoRef.current;
+  const handleLoadedMetadata = () => {
+    // Set the canvas dimensions to match the video
     const canvas = canvasRef.current;
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-    canvas.getContext("2d").drawImage(video, 0, 0);
+    canvas.width = videoRef.current.videoWidth;
+    canvas.height = videoRef.current.videoHeight;
+
+    // Draw the first frame of the video on the canvas
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(videoRef.current, 0, 0);
+
+    // Convert the canvas to a data URL and set it as the thumbnail
     const dataUrl = canvas.toDataURL("image/png");
-    props.onThumbnail(dataUrl);
-  }
+    setThumbnail(dataUrl);
+  };
 
   return (
     <div>
-      <video
-        ref={videoRef}
-        src={props.src}
-        onLoadedMetadata={handleLoadedMetadata}
-        style={{ display: "none" }}
-      />
+      <video ref={videoRef} src={url} onLoadedMetadata={handleLoadedMetadata} />
       <canvas ref={canvasRef} style={{ display: "none" }} />
+      {thumbnail && <img src={thumbnail} alt="Video thumbnail" />}
     </div>
   );
 }

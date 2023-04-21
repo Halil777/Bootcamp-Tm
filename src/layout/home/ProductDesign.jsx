@@ -11,8 +11,11 @@ import btn1 from "../../images/Adobe_Photoshop_CC_icon.svg";
 import btn2 from "../../images/Figma-logo.svg";
 import btn3 from "../../images/Adobe_Illustrator_CC_icon.svg";
 import Spacer from "../../components/Spacer";
+import { useTranslation } from "react-i18next";
 
 const ProductDesign = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Container>
@@ -27,10 +30,11 @@ const ProductDesign = () => {
             </Grid>
             <Grid item xs={12} sm={6} lg={6}>
               <Stack spacing={2}>
-                <Typography sx={homeappDevelopment}>Product design</Typography>
-                <Typography sx={fullstackText}>
-                  Learn how to design unique brand identities, <br /> product
-                  design and user interface
+                <Typography sx={homeappDevelopment}>
+                  {t("productDesign")}
+                </Typography>
+                <Typography width="75%" sx={fullstackText}>
+                  {t("learnDesign")}
                 </Typography>
                 <Stack direction="row" spacing={2}>
                   <Button sx={dartButton} variant="contained">
@@ -59,7 +63,7 @@ const ProductDesign = () => {
                   Figma
                 </Button>
                 <Button sx={homeViewButton} variant="contained">
-                  View details
+                  {t("viewDetails")}
                 </Button>
               </Stack>
             </Grid>
@@ -83,7 +87,7 @@ const ProductDesign = () => {
                     fontSize: "30px",
                   }}
                 >
-                  Product design
+                  {t("productDesign")}
                 </Typography>
                 <Typography
                   sx={{
@@ -91,9 +95,7 @@ const ProductDesign = () => {
                     textAlign: { xs: "center", sm: "start" },
                   }}
                 >
-                  Learn how to design unique
-                  <b> brand </b> <br /> <b> identities, </b>
-                  <b> product designs </b> and <b> user interface </b>
+                  {t("learnDesign")}
                 </Typography>
               </Stack>
             </Grid>
@@ -161,7 +163,7 @@ const ProductDesign = () => {
                     }}
                   >
                     <Button sx={homeViewButton} variant="contained">
-                      View details
+                      {t("viewDetails")}
                     </Button>
                   </Stack>
                 </Grid>

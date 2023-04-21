@@ -6,8 +6,11 @@ import {
   homeViewButton,
   homeappDevelopment,
 } from "../../style/homeStyle.mjs";
+import { useTranslation } from "react-i18next";
 
 const FullStackMini = () => {
+  const { t } = useTranslation();
+
   return (
     <Box sx={{ display: { xs: "block", sm: "block", lg: "none" } }}>
       <Container>
@@ -25,7 +28,8 @@ const FullStackMini = () => {
                 fontSize: "30px",
               }}
             >
-              Full-stack web <br /> development
+              {t("fullStack")}
+              <br /> {t("development")}
             </Typography>
             <Typography
               sx={{
@@ -33,9 +37,7 @@ const FullStackMini = () => {
                 textAlign: { xs: "center", sm: "start" },
               }}
             >
-              <b> Web developer</b> is highly needed <br /> profession in
-              nowadays . Become <b> Full stack </b> <br /> developer in
-              BootcampTm.
+              {t("webDeveloper")}
             </Typography>
           </Grid>
           <Grid item sm={6} xs={12}>
@@ -80,7 +82,7 @@ const FullStackMini = () => {
                 </Button>
               </Stack>
               <Button sx={homeViewButton} variant="contained">
-                View details
+                {t("viewDetails")}
               </Button>
             </Stack>
           </Grid>
