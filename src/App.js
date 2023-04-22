@@ -12,6 +12,7 @@ import AppDevelopmentCourses from "./layout/appDevelopmentCourses/AppDevelopment
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import ScrollToTop from "./components/ScrollToTop";
+import { HelmetProvider } from "react-helmet-async";
 
 export const AppContext = createContext({});
 
@@ -32,35 +33,38 @@ function App() {
   useEffect(() => {
     console.clear();
   }, []);
+
   return (
     <>
-      <AppContext.Provider
-        value={{
-          t: t,
-          changeLanguage: changeLanguage,
-        }}
-      >
-        <BrowserRouter>
-          <ScrollToTop />
-          <Routes>
-            <Route path={"/"} element={<Index />}>
-              <Route path={"/about"} element={<About />} />
-              <Route index element={<Home />} />
-              <Route path="/courses" element={<Courses />} />
-              <Route path="/enroll" element={<Enroll />} />
-              <Route path="/videoCourses" element={<VideoCourses />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contactUs" element={<ContactUs />} />
-              <Route path="/sign-in" element={<SignIn />} />
-              <Route path="/sign-up" element={<SignUp />} />
-              <Route
-                path="/appDevelopmentCourses"
-                element={<AppDevelopmentCourses />}
-              />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </AppContext.Provider>
+      <HelmetProvider>
+        <AppContext.Provider
+          value={{
+            t: t,
+            changeLanguage: changeLanguage,
+          }}
+        >
+          <BrowserRouter>
+            <ScrollToTop />
+            <Routes>
+              <Route path={"/"} element={<Index />}>
+                <Route path={"/about"} element={<About />} />
+                <Route index element={<Home />} />
+                <Route path="/courses" element={<Courses />} />
+                <Route path="/enroll" element={<Enroll />} />
+                <Route path="/videoCourses" element={<VideoCourses />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contactUs" element={<ContactUs />} />
+                <Route path="/sign-in" element={<SignIn />} />
+                <Route path="/sign-up" element={<SignUp />} />
+                <Route
+                  path="/appDevelopmentCourses"
+                  element={<AppDevelopmentCourses />}
+                />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </AppContext.Provider>
+      </HelmetProvider>
     </>
   );
 }

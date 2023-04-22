@@ -12,8 +12,18 @@ import Spacer from "../components/Spacer";
 import TextField from "@mui/material/TextField";
 import vector from "../style/coursesImage/Vector.png";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { enrollSection } from "../style/enroll.mjs";
+import { Helmet } from "react-helmet-async";
+import * as Yup from "yup";
+import { useFormik } from "formik";
 
-const MyTextField = styled(TextField)({
+const validationSchema = Yup.object({
+  login: Yup.string().required("Required"),
+  password: Yup.string().required("Required"),
+});
+
+export const MyTextField = styled(TextField)({
   "& .MuiInputLabel-root": {
     color: "#fff", // Change label color here
     borderRadius: "14px",
@@ -38,7 +48,7 @@ const MyTextField = styled(TextField)({
   },
 });
 
-const MyTextFieldP = styled(TextField)({
+export const MyTextFieldP = styled(TextField)({
   "& .MuiInputLabel-root": {
     color: "#fff",
     borderRadius: "14px",
@@ -78,11 +88,28 @@ const SignIn = () => {
     navigate("/sign-up");
   };
 
+  const { t } = useTranslation();
+
+  const formik = useFormik({
+    initialValues: {
+      login: "",
+      password: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values, { resetForm }) => {
+      alert(JSON.stringify(values, null, 2));
+      resetForm();
+    },
+  });
+
   return (
     <>
+      <Helmet>
+        <title>{t("login")} | BootcampTm</title>
+      </Helmet>
       <Spacer count={3} />
       <Container>
-        <Box>
+        <Box sx={enrollSection} p={10}>
           <Typography
             sx={{
               color: "#CA0088",
@@ -92,77 +119,82 @@ const SignIn = () => {
               textAlign: "center",
             }}
           >
-            Sign in to Continue
+            {t("signintoContinue")}
           </Typography>
           <Spacer count={3} />
           <Grid container spacing={3} mb={-10}>
-            <Grid item lg={6} alignItems={"center"}>
-              <Stack spacing={2}>
-                <MyTextField
-                  id="outlined-basic"
-                  label="Login"
-                  variant="outlined"
-                />
-                <MyTextFieldP
-                  id="outlined-basic"
-                  label="Password"
-                  type="password" // Add type property here
-                  variant="outlined"
-                />
-              </Stack>
-              <Stack direction="row" justifyContent="flex-end" mt={1}>
-                <Typography
-                  sx={{
-                    color: "#1D4CF2",
-                    fontSize: "14px",
-                    fontFamily: "AppReguular",
-                    cursor: "pointer",
-                  }}
-                >
-                  Forget password
-                </Typography>
-              </Stack>
-              <Stack direction="row" spacing={2} mt={1}>
-                <Button
-                  variant="outlined"
-                  sx={{
-                    textTransform: "none",
-                    color: "#CA0088",
-                    fontSize: "16px",
-                    fontFamily: "AppReguular",
-                    border: "1px solid #CA0088",
-                    borderRadius: "10px",
-                    "&:hover": {
+            <form onSubmit={formik.handleSubmit}>
+              <Grid item lg={6} alignItems={"center"}>
+                <Stack spacing={2}>
+                  <MyTextField
+                    id="login"
+                    label={t("login")}
+                    variant="outlined"
+                    value={formik.values.login}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    error={formik.touched.login && Boolean(formik.errors.login)}
+                    helperText={formik.touched.login && formik.errors.login}
+                  />
+                  <MyTextFieldP
+                    id="password"
+                    label={t("password")}
+                    type="password" // Add type property here
+                    variant="outlined"
+                    value={formik.values.password}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    error={
+                      formik.touched.password && Boolean(formik.errors.password)
+                    }
+                    helperText={
+                      formik.touched.password && formik.errors.password
+                    }
+                  />
+                </Stack>
+                <Stack direction="row" spacing={2} mt={1}>
+                  <Button
+                    variant="outlined"
+                    sx={{
+                      textTransform: "none",
+                      color: "#CA0088",
+                      fontSize: "16px",
+                      fontFamily: "AppReguular",
                       border: "1px solid #CA0088",
                       borderRadius: "10px",
-                    },
-                  }}
-                  onClick={handleClick}
-                >
-                  Sign up
-                </Button>
-                <Button
-                  variant="contained"
-                  sx={{
-                    textTransform: "none",
-                    color: "#F4F4F4",
-                    fontSize: "16px",
-                    fontFamily: "AppReguular",
-                    borderRadius: "10px",
-                    background: "#1D4CF2",
-                    boxShadow: "0px 10px 40px rgba(29, 76, 242, 0.2)",
-                    "&:hover": {
+                      "&:hover": {
+                        border: "1px solid #CA0088",
+                        borderRadius: "10px",
+                      },
+                    }}
+                    onClick={handleClick}
+                  >
+                    {t("signup")}
+                  </Button>
+                  <Button
+                    variant="contained"
+                    type="submit"
+                    sx={{
+                      textTransform: "none",
+                      color: "#F4F4F4",
+                      fontSize: "16px",
+                      fontFamily: "AppReguular",
+                      borderRadius: "10px",
                       background: "#1D4CF2",
-                    },
-                  }}
-                >
-                  Continue
-                </Button>
-              </Stack>
-            </Grid>
-            <Grid item lg={6}>
-              <img src={vector} style={{ width: "100%" }} alt="vector" />
-            </Grid>
+                      boxShadow: "0px 10px 40px rgba(29, 76, 242, 0.2)",
+                      "&:hover": {
+                        background: "#1D4CF2",
+                      },
+                    }}
+                  >
+                    {t("continue")}
+                  </Button>
+                </Stack>
+              </Grid>
+              <Grid item lg={6}>
+                <img src={vector} style={{ width: "100%" }} alt="vector" />
+              </Grid>
+            </form>
           </Grid>
         </Box>
       </Container>

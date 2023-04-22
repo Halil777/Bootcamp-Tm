@@ -16,6 +16,8 @@ import {
   enrollText,
   enrollTitle,
 } from "../style/enroll.mjs";
+import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 
 const top100Films = [
   { title: "English" },
@@ -54,6 +56,8 @@ const useStyles = makeStyles({
 });
 
 const Enroll = () => {
+  const { t } = useTranslation();
+
   const classes = useStyles();
 
   const [phoneNumber, setPhoneNumber] = useState("+993 6");
@@ -73,6 +77,9 @@ const Enroll = () => {
   };
   return (
     <>
+      <Helmet>
+        <title>{t("enroll")} | BootcampTm</title>
+      </Helmet>
       <Spacer count={3} />
       <Container>
         <Box sx={enrollSection}>

@@ -8,10 +8,17 @@ import FullStackMini from "../layout/homeMini/FullStackMini";
 import ProductDesign from "../layout/home/ProductDesign";
 import DataAnAlitcsPage from "../layout/home/DataAnAlitcsPage";
 import LearningEngaging from "../layout/home/LearningEngaging";
+import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 
 const Courses = () => {
+  const { t } = useTranslation();
+
   return (
     <>
+      <Helmet>
+        <title>{t("courses")} | BootcampTm</title>
+      </Helmet>
       <CoursesSlider />
       <Spacer count={3} />
       <CoursesHome />

@@ -27,6 +27,7 @@ import FullStackMini from "../layout/homeMini/FullStackMini.jsx";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 function getStackContent(selectedLanguage, t) {
   const startNew = t("startNew");
@@ -62,6 +63,9 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{t("home")} | BootcampTm</title>
+      </Helmet>
       <Container>
         <Box sx={{ display: { xs: "none", sm: "block", lg: "block" } }}>
           <Grid container alignItems={"center"} sx={{ zIndex: 2 }}>

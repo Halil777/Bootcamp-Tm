@@ -1,79 +1,21 @@
-import {
-  Box,
-  Button,
-  Container,
-  Grid,
-  Stack,
-  Typography,
-  styled,
-} from "@mui/material";
+import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
 import React, { useState } from "react";
 import Spacer from "../components/Spacer";
-import TextField from "@mui/material/TextField";
 import vector from "../style/coursesImage/Vector.png";
 import { useTranslation } from "react-i18next";
+import { enrollSection } from "../style/enroll.mjs";
+import { Helmet } from "react-helmet-async";
+import * as Yup from "yup";
+import { useFormik } from "formik";
+import { MyTextField, MyTextFieldP } from "./SignIn";
+import { ToastContainer } from "react-toastify";
+import { showError, showSuccess } from "../components/Alert";
 
-const MyTextField = styled(TextField)({
-  "& .MuiInputLabel-root": {
-    color: "#fff", // Change label color here
-    borderRadius: "14px",
-  },
-  "& .MuiOutlinedInput-root": {
-    "& fieldset": {
-      borderColor: "rgba(255, 255, 255, 0.2)",
-      borderRadius: "14px",
-    },
-    "&:hover fieldset": {
-      borderColor: "rgba(255, 255, 255, 0.4)",
-      borderRadius: "14px",
-    },
-    "&.Mui-focused fieldset": {
-      borderColor: "your-color-here", // Change focus border color here
-      borderRadius: "14px",
-    },
-    "& .MuiInputBase-input": {
-      color: "#fff", // Change text color here
-      borderRadius: "14px",
-    },
-  },
-});
-
-const MyTextFieldP = styled(TextField)({
-  "& .MuiInputLabel-root": {
-    color: "#fff",
-    borderRadius: "14px",
-  },
-  "& .MuiOutlinedInput-root": {
-    "& fieldset": {
-      borderColor: "rgba(255, 255, 255, 0.2)",
-      borderRadius: "14px",
-    },
-    "&:hover fieldset": {
-      borderColor: "rgba(255, 255, 255, 0.4)",
-      borderRadius: "14px",
-    },
-    "&.Mui-focused fieldset": {
-      borderColor: "your-color-here",
-      borderRadius: "14px",
-    },
-    "& .MuiInputBase-input": {
-      color: "#fff",
-      borderRadius: "14px",
-    },
-    "& .MuiInputAdornment-root svg": {
-      color: "#fff", // Change icon color here
-      borderRadius: "14px",
-    },
-    "& .MuiInputBase-input[type='password']": {
-      letterSpacing: "0.5em", // Add custom style for password input here
-      borderRadius: "14px",
-    },
-  },
-});
 const SignUp = () => {
   const { t } = useTranslation();
 
   const [password, setPassword] = useState("");
+
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const handlePasswordChange = (event) => {
@@ -87,16 +29,51 @@ const SignUp = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (password !== confirmPassword) {
-      alert("Passwords do not match!");
+      showError("Passwords do not match!");
     } else {
-      alert("Passwords match!");
+      showSuccess("Password  is correct!");
+      formik.handleSubmit();
     }
   };
+
+  const validationSchema = Yup.object({
+    login: Yup.string().required(t("required")),
+    password: Yup.string().required(t("required")),
+    confirmPassword: Yup.string()
+      .required(t("required"))
+      .oneOf([Yup.ref("password"), null], "Passwords must match"),
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      login: "",
+      password: "",
+      confirmPassword: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values, { resetForm }) => {
+      // alert(JSON.stringify(values, null, 2));
+      showSuccess("You successfully signed up");
+      resetForm({
+        values: {
+          login: "",
+          password: "",
+          confirmPassword: "",
+        },
+      });
+      resetForm();
+    },
+  });
+
   return (
     <>
+      <ToastContainer />
+      <Helmet>
+        <title>{t("signup")} | BootcampTm</title>
+      </Helmet>
       <Spacer count={3} />
       <Container>
-        <Box>
+        <Box sx={enrollSection} p={10}>
           <Typography
             sx={{
               color: "#CA0088",
@@ -109,48 +86,60 @@ const SignUp = () => {
             {t("signuptoLearnMore")}
           </Typography>
           <Spacer count={3} />
-          <Grid container spacing={3} mb={-10}>
+          <Grid container spacing={10} mb={-10}>
             <Grid item lg={6} alignItems={"center"}>
               <form onSubmit={handleSubmit}>
                 <MyTextField
                   fullWidth
-                  id="outlined-basic"
+                  id="login"
                   label={t("login")}
                   variant="outlined"
+                  value={formik.values.login}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  error={formik.touched.login && Boolean(formik.errors.login)}
+                  helperText={formik.touched.login && formik.errors.login}
                 />
                 <Spacer count={1} />
                 <MyTextFieldP
                   fullWidth
                   id="password"
                   label={t("password")}
-                  type="password"
+                  type="password" // Add type property here
                   variant="outlined"
-                  value={password}
-                  onChange={handlePasswordChange}
+                  value={formik.values.password}
+                  onChange={(event) => {
+                    handlePasswordChange(event);
+                    formik.handleChange(event);
+                  }}
+                  onBlur={formik.handleBlur}
+                  error={
+                    formik.touched.password && Boolean(formik.errors.password)
+                  }
+                  helperText={formik.touched.password && formik.errors.password}
                 />
                 <Spacer count={1} />
                 <MyTextFieldP
                   fullWidth
-                  id="confirm-password"
+                  id="confirmPassword"
                   label={t("confirmPassword")}
-                  type="password"
+                  type="password" // Add type property here
                   variant="outlined"
                   value={confirmPassword}
-                  onChange={handleConfirmPasswordChange}
+                  onChange={(event) => {
+                    handleConfirmPasswordChange(event);
+                    formik.handleChange(event);
+                  }}
+                  onBlur={formik.handleBlur}
+                  error={
+                    formik.touched.confirmPassword &&
+                    Boolean(formik.errors.confirmPassword)
+                  }
+                  helperText={
+                    formik.touched.confirmPassword &&
+                    formik.errors.confirmPassword
+                  }
                 />
-
-                <Stack direction="row" justifyContent="flex-end" mt={1}>
-                  <Typography
-                    sx={{
-                      color: "#1D4CF2",
-                      fontSize: "14px",
-                      fontFamily: "AppReguular",
-                      cursor: "pointer",
-                    }}
-                  >
-                    {t("forgetPassword")}
-                  </Typography>
-                </Stack>
                 <Stack direction="row" spacing={2} mt={1}>
                   <Button
                     variant="outlined"
