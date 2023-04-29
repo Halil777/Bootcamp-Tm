@@ -17,14 +17,14 @@ export const homeTitleFirst = {
   color: "#f4f4f4",
   fontFamily: "AppSemiBold",
   fontWeight: "800",
-  fontSize: "50px",
+  fontSize: { lg: "50px", sm: "40px", xs: "30px" },
 };
 
 export const homeTitleSecond = {
   color: "#1D4CF2",
   fontFamily: "AppSemiBold",
   fontWeight: "800",
-  fontSize: "50px",
+  fontSize: { lg: "50px", sm: "40px", xs: "30px" },
 };
 
 export const enrollButton = {

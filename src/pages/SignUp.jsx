@@ -73,19 +73,19 @@ const SignUp = () => {
       </Helmet>
       <Spacer count={3} />
       <Container>
-        <Box sx={enrollSection} p={10}>
+        <Box sx={enrollSection} p={{ lg: 10, sm: 7, xs: 5 }}>
           <Typography
             sx={{
               color: "#CA0088",
               fontFamily: "AppRegular",
               fontWeight: "600",
-              fontSize: "30px",
+              fontSize: { lg: "30px", sm: "25px", xs: "20px" },
               textAlign: "center",
             }}
           >
             {t("signuptoLearnMore")}
           </Typography>
-          <Spacer count={3} />
+          <Spacer count={{ lg: 3, sm: 2, xs: 2 }} />
           <Grid container spacing={10} mb={-10}>
             <Grid item lg={6} alignItems={"center"}>
               <form onSubmit={handleSubmit}>
@@ -140,7 +140,7 @@ const SignUp = () => {
                     formik.errors.confirmPassword
                   }
                 />
-                <Stack direction="row" spacing={2} mt={1}>
+                <Stack direction="row" spacing={2} mt={2}>
                   <Button
                     variant="outlined"
                     sx={{

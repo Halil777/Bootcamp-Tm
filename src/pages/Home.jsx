@@ -28,6 +28,8 @@ import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Blurhash } from "react-blurhash";
 
 function getStackContent(selectedLanguage, t) {
   const startNew = t("startNew");
@@ -86,10 +88,25 @@ const Home = () => {
               </Stack>
             </Grid>
             <Grid item sm={12} lg={6} xs={12} zIndex={10}>
-              <img
+              {/* <img
                 src={womens}
                 style={{ width: "100%", zIndex: 10 }}
                 alt="womens"
+              /> */}
+              <LazyLoadImage
+                delayTime={100000}
+                alt="test"
+                height={650}
+                effect="blur"
+                placeholder={
+                  <Blurhash
+                    hash={"LID,7gW-pyRj?ws:Nxae.9R*R-%1"}
+                    width={"100%"}
+                    height={650}
+                  />
+                }
+                src={womens}
+                width="100%"
               />
             </Grid>
           </Grid>

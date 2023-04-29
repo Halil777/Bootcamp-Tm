@@ -2,16 +2,14 @@ import React, { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Drawer from "@mui/material/Drawer";
 import {
   iconStyle,
-  languageStyle,
   linkAvtiveStyle,
   navbarStyle,
 } from "../style/navbarStyle.mjs";
-import { Stack } from "@mui/material";
+import { Divider, Stack } from "@mui/material";
 import logo from "../images/logo.png";
 import logo1 from "../images/logo1.png";
 import { navbarData } from "../data/navbarData/navbar.mjs";
@@ -23,7 +21,6 @@ import { styled, alpha } from "@mui/material/styles";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import i18n from "../utils/i18n.mjs";
 import NotesIcon from "@mui/icons-material/Notes";
 
 const StyledMenu = styled((props) => (
@@ -89,7 +86,6 @@ function Navbar() {
   };
 
   const { i18n } = useTranslation();
-
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedLanguage, setSelectedLanguage] = useState(
     localStorage.getItem("lng") || "tm"
@@ -128,31 +124,71 @@ function Navbar() {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: 250 }}
+      sx={{ width: 250, backgroundColor: "#1C104F", height: "100%" }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <Stack pt={3} direction="column" pl={5} alignItems={"flex-start"}>
+      <Stack pt={3} direction="column" pl={5} pb={2} alignItems={"flex-start"}>
         {navbarData.map((item, i) => {
           return (
             <>
-              <Stack direction="column" spacing={0.5} alignItems={"center"}>
-                <Link style={linkAvtiveStyle} to={item.link}>
+              <Stack direction="column" spacing={-0.5} alignItems={"center"}>
+                <Link
+                  onClick={toggleDrawer(anchor, false)}
+                  style={{ ...linkAvtiveStyle, marginBottom: "7px" }}
+                  to={item.link}
+                >
                   {t(item.title)}
                 </Link>
                 <Box
                   sx={{
                     display: item.link === location.pathname ? "flex" : "none",
                     backgroundColor: "#CA0088",
-                    width: "5px",
-                    height: "5px",
+                    width: "50px",
+                    height: "1px",
                   }}
                 ></Box>
               </Stack>
             </>
           );
         })}
+      </Stack>
+      <Divider color="#CA0088" />
+      <Stack
+        direction="row"
+        width="100%"
+        pt={2}
+        spacing={3}
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Link to={"sign-in"}>
+          <IconButton sx={iconStyle}>
+            <PersonOutlineOutlinedIcon />
+          </IconButton>
+        </Link>
+        <>
+          <IconButton onClick={handleClick}>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              {renderLanguageIcon()}
+              <ArrowDropDownIcon sx={{ fontSize: "17px" }} />
+            </div>
+          </IconButton>
+          <StyledMenu
+            id="demo-customized-menu"
+            MenuListProps={{
+              "aria-labelledby": "demo-customized-button",
+            }}
+            anchorEl={anchorEl}
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            <MenuItem onClick={() => handleLanguageChange("tm")}>TM</MenuItem>
+            <MenuItem onClick={() => handleLanguageChange("en")}>ENG</MenuItem>
+            <MenuItem onClick={() => handleLanguageChange("ru")}>RU</MenuItem>
+          </StyledMenu>
+        </>
       </Stack>
     </Box>
   );
@@ -242,7 +278,12 @@ function Navbar() {
             </Stack>
           </Container>
         </Box>
-        <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+        <Box
+          sx={{
+            flexGrow: 1,
+            display: { xs: "flex", md: "none" },
+          }}
+        >
           {["right"].map((anchor) => (
             <React.Fragment key={anchor}>
               <Stack

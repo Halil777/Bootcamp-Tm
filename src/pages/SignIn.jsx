@@ -109,13 +109,13 @@ const SignIn = () => {
       </Helmet>
       <Spacer count={3} />
       <Container>
-        <Box sx={enrollSection} p={10}>
+        <Box sx={enrollSection} p={{ lg: 10, sm: 7, xs: 5 }}>
           <Typography
             sx={{
               color: "#CA0088",
               fontFamily: "AppRegular",
               fontWeight: "600",
-              fontSize: "30px",
+              fontSize: { lg: "30px", sm: "25px", xs: "20px" },
               textAlign: "center",
             }}
           >
@@ -123,8 +123,8 @@ const SignIn = () => {
           </Typography>
           <Spacer count={3} />
           <Grid container spacing={3} mb={-10}>
-            <form onSubmit={formik.handleSubmit}>
-              <Grid item lg={6} alignItems={"center"}>
+            <Grid item lg={6} alignItems={"center"}>
+              <form onSubmit={formik.handleSubmit}>
                 <Stack spacing={2}>
                   <MyTextField
                     id="login"
@@ -152,7 +152,7 @@ const SignIn = () => {
                     }
                   />
                 </Stack>
-                <Stack direction="row" spacing={2} mt={1}>
+                <Stack direction="row" spacing={2} mt={2}>
                   <Button
                     variant="outlined"
                     sx={{
@@ -190,11 +190,11 @@ const SignIn = () => {
                     {t("continue")}
                   </Button>
                 </Stack>
-              </Grid>
-              <Grid item lg={6}>
-                <img src={vector} style={{ width: "100%" }} alt="vector" />
-              </Grid>
-            </form>
+              </form>
+            </Grid>
+            <Grid item lg={6} mt={{ lg: 0, sm: 0, xs: 3 }}>
+              <img src={vector} style={{ width: "100%" }} alt="vector" />
+            </Grid>
           </Grid>
         </Box>
       </Container>
